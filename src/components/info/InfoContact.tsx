@@ -10,8 +10,8 @@ export default function InfoContact({
   children: React.ReactNode;
 }) {
   return (
-    <div className="">
-      <h1 className="pb-2">{children}</h1>
+    <div className="flex flex-col gap-2">
+      <h1 className="">{children}</h1>
       <ul>
         <li className="">
           mail: &nbsp;&nbsp;
