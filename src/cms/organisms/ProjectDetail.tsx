@@ -20,7 +20,12 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
   if (!project) return <div>Project not found.</div>;
 
   return (
-    <section className={clsx(className, "px-12 pt-40 lowercase md:pt-52")}>
+    <section
+      className={clsx(
+        className,
+        "px-8 pt-40 pb-20 lowercase md:px-12 md:pt-52"
+      )}
+    >
       {renderHeader ? (
         renderHeader(project)
       ) : (
