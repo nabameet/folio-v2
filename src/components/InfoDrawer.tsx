@@ -22,7 +22,7 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
         }}
       >
         <motion.div
-          className="pt-40 md:pb-20 px-12 text-justify flex flex-col gap-8 md:flex-row md:gap-24 items-end md:justify-end"
+          className="flex flex-col gap-8 items-end px-8 pt-32 text-justify md:pt-40 md:pb-20 md:px-12 md:flex-row md:gap-24 md:justify-end"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}

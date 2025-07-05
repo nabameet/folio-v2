@@ -1,6 +1,5 @@
 export type MDXMetadata = {
   title: string;
-  isPersonal?: boolean;
   publishedAt: string;
   summary: string;
   tags: string; // Comma-separated

@@ -10,7 +10,7 @@ interface NavProps {
 }
 
 export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => (
-  <nav className="fixed w-full flex gap-12 p-12 justify-end z-50">
+  <nav className="flex fixed z-50 gap-12 justify-end p-8 w-full md:p-12">
     <ul className="flex gap-12">
       {items.map((item, idx) =>
         item.type === "link" ? (

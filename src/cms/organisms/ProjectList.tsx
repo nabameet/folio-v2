@@ -2,6 +2,7 @@ import React from "react";
 import { MDXContent } from "../types";
 import { cmsConfig } from "../config/content";
 import Link from "next/link";
+import clsx from "clsx";
 
 export type ProjectListProps = {
   projects: MDXContent[];
@@ -15,20 +16,28 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   className,
 }) => {
   return (
-    <ul className={className}>
-      {projects.map((project) =>
-        renderItem ? (
-          renderItem(project)
-        ) : (
-          <li key={project.slug} className="text-right">
-            <Link href={cmsConfig.base_path + "/" + project.slug} className="">
-              {project.metadata.title}
-              {project.metadata.isPersonal ? " (personal)" : ""}
-              {/* <p>{project.metadata.summary}</p> */}
-            </Link>
-          </li>
-        )
-      )}
-    </ul>
+    <div className={clsx("flex flex-col gap-4 lowercase", className)}>
+      <h1 className="">selected works:</h1>
+      <ul className="">
+        {projects.map((project, index) =>
+          renderItem ? (
+            renderItem(project)
+          ) : (
+            <li key={index} className="">
+              <Link href={cmsConfig.base_path + "/" + project.slug}>
+                <span className="pl-8 pr-2 text-sm border rounded-[100%]">
+                  {index + 1}
+                </span>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span className="italic underline">
+                  {project.metadata.title}
+                </span>
+                {/* <p>{project.metadata.summary}</p> */}
+              </Link>
+            </li>
+          )
+        )}
+      </ul>
+    </div>
   );
 };

@@ -1,7 +1,8 @@
-import React from 'react';
-import { formatDate } from '../utils/date';
-import { MDXContentRenderer } from './MDXContentRenderer';
-import { MDXContent } from '../types';
+import React from "react";
+// import { formatDate } from "../utils/date";
+import { MDXContentRenderer } from "./MDXContentRenderer";
+import { MDXContent } from "../types";
+import clsx from "clsx";
 
 export type ProjectDetailProps = {
   project: MDXContent;
@@ -10,22 +11,42 @@ export type ProjectDetailProps = {
   className?: string;
 };
 
-export const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, renderHeader, renderMeta, className }) => {
+export const ProjectDetail: React.FC<ProjectDetailProps> = ({
+  project,
+  renderHeader,
+  renderMeta,
+  className,
+}) => {
   if (!project) return <div>Project not found.</div>;
 
   return (
-    <section className={className}>
+    <section className={clsx(className, "px-12 pt-40 lowercase md:pt-52")}>
       {renderHeader ? (
         renderHeader(project)
       ) : (
-        <h1>{project.metadata.title}</h1>
+        <h1 className="text-7xl">{project.metadata.title}</h1>
       )}
       {renderMeta ? (
         renderMeta(project)
       ) : (
-        <div style={{ margin: '0.5rem 0', color: '#888' }}>{formatDate(project.metadata.publishedAt)}</div>
+        <div className="flex flex-col gap-8 mb-12">
+          {/* {formatDate(project.metadata.publishedAt)} */}
+          <div className="">
+            {project.metadata.tags.split(",").map((tag, key) => (
+              <span
+                key={key}
+                className="pl-12 pr-4 -mr-2 text-sm border rounded-[100%]"
+              >
+                {tag.trim()}
+              </span>
+            ))}
+          </div>
+          <p>{project.metadata.summary}</p>
+        </div>
       )}
-      <MDXContentRenderer source={project.content} />
+      <article className="text-justify prose lg:prose-xl text-foreground prose-headings:text-foreground prose-headings:font-normal prose-headings:tracking-tighter prose-p:leading-snug">
+        <MDXContentRenderer source={project.content} />
+      </article>
     </section>
   );
-}; 
+};

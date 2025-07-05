@@ -10,10 +10,10 @@ export default function Home() {
 
   return (
     <>
-      <main className="w-full h-screen flex items-center justify-center relative">
+      <main className="flex relative justify-center items-center w-full h-screen">
         <Logo className="w-full h-full" />
         <ProjectList
-          className="absolute top-0 right-0 pt-40 p-12"
+          className="absolute top-0 left-0 px-8 pt-40 md:px-12"
           projects={projects}
         />
       </main>
