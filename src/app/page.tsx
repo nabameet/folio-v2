@@ -1,5 +1,9 @@
 // No more speaking. Best impact. Leave at bol
 
+// TODO: Background change to image
+// TODO: Play Page
+// TODO?: Visuals on home page
+
 import Logo from "@/components/logo/Logo";
 import { getAllContent } from "@/cms/utils/mdx";
 import { ProjectList } from "@/cms";
