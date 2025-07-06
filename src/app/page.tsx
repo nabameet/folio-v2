@@ -1,5 +1,6 @@
 // No more speaking. Best impact. Leave at bol
 
+// TODO: Fix Mobile Bug
 // TODO: Background change to image
 // TODO: Play Page
 // TODO?: Visuals on home page
@@ -9,7 +10,6 @@ import { getAllContent } from "@/cms/utils/mdx";
 import { ProjectList } from "@/cms";
 
 export default function Home() {
-  // ];
   const projects = getAllContent();
 
   return (

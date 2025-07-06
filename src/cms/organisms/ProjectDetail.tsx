@@ -23,7 +23,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
     <section
       className={clsx(
         className,
-        "px-8 pt-40 pb-20 lowercase md:px-12 md:pt-52"
+        "px-8 pt-40 pb-20 w-full lowercase md:px-12 md:pt-52"
       )}
     >
       {renderHeader ? (
@@ -49,7 +49,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
           <p>{project.metadata.summary}</p>
         </div>
       )}
-      <article className="text-justify prose lg:prose-xl text-foreground prose-headings:text-foreground prose-headings:font-normal prose-headings:tracking-tighter prose-p:leading-snug">
+      <article className="w-full text-justify prose lg:prose-xl text-foreground prose-headings:text-foreground prose-headings:font-normal prose-headings:tracking-tighter prose-p:leading-snug">
         <MDXContentRenderer source={project.content} />
       </article>
     </section>
