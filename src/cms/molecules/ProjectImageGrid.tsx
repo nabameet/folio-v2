@@ -6,4 +6,4 @@ export type ProjectImageGridProps = {
 
 export const ProjectImageGrid: React.FC<ProjectImageGridProps> = ({
   children,
-}) => <div className="flex w-full">{children}</div>;
+}) => <div className="flex flex-col md:flex-row">{children}</div>;
