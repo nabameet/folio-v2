@@ -17,7 +17,7 @@ export const WorkPlayToggle = () => {
         className={clsx(
           "relative inline-block",
           isWork
-            ? "italic after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]"
+            ? "italic" // add for strikethrough: after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]
             : ""
         )}
       >
@@ -29,7 +29,7 @@ export const WorkPlayToggle = () => {
         className={clsx(
           "relative inline-block",
           isPlay
-            ? "italic after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]"
+            ? "italic" // add for strikethrough: after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]
             : ""
         )}
       >
