@@ -1,8 +1,8 @@
 // No more speaking. Best impact. Leave at bol
 
-// TODO: Fix Mobile Bug
-// TODO: Background change to image
-// TODO: Play Page
+// TODO:  Project Page
+// TODO:  Background change to image
+// TODO:  Play Page
 // TODO?: Visuals on home page
 
 import Logo from "@/components/logo/Logo";
