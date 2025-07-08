@@ -11,7 +11,7 @@ export default function Logo(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 1440 1080"
       fill="none"
       stroke="currentColor"
-      strokeWidth={2}
+      strokeWidth={2.5}
       {...props}
     >
       <g className="origin-center scale-75">
