@@ -1,12 +1,12 @@
 // No more speaking. Best impact. Leave at bol
 
-// TODO:  FIX: Cursor doesn't resize on page change, stays big
-// TODO:  COMPLETE FIX: Project Page (Temp Patchwork Done)
 // TODO:  Load entire website upfront
 // TODO:  Loader ("nabameet" being written like Apple's "hello")
 // TODO:  Background change to image
 // TODO:  Play Page
 // TODO?: Visuals on home page
+// TODO:  FIX: Cursor doesn't resize on page change, stays big
+// TODO:  COMPLETE FIX: Project Page (Temp Patchwork Done)
 
 import Logo from "@/components/logo/Logo";
 import { getAllContent } from "@/cms/utils/mdx";
