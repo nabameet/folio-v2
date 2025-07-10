@@ -8,14 +8,12 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
   alt,
   ...props
 }) => (
-  // <div className="relative w-full h-">
   <Image
     src={src}
     alt={alt}
     {...props}
     width={1920}
     height={1080}
-    className="object-contain w-full"
+    className="object-contain"
   />
-  // </div>
 );

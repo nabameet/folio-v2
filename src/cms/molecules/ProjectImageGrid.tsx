@@ -6,4 +6,4 @@ export type ProjectImageGridProps = {
 
 export const ProjectImageGrid: React.FC<ProjectImageGridProps> = ({
   children,
-}) => <div className="flex flex-col md:flex-row">{children}</div>;
+}) => <div className="">{children}</div>; // temporarily removed it until i fix it
