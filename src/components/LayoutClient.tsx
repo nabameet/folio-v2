@@ -9,6 +9,7 @@ import { WorkPlayToggle } from "@/components/WorkPlayToggle";
 import { NavItem } from "@/types/nav";
 import InfoAbout from "@/components/info/InfoAbout";
 import InfoContact from "@/components/info/InfoContact";
+import Footer from "@/components/Footer";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -37,6 +38,7 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
         </InfoContact>
       </InfoDrawer>
       <div className="">{children}</div>
+      <Footer />
     </>
   );
 };
