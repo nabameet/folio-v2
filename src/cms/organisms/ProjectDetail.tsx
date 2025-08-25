@@ -30,9 +30,12 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
         {renderHeader ? (
           renderHeader(project)
         ) : (
-          <h1 className="text-7xl lg:text-9xl lg:leading-23 lg:mb-0 leading-12 mb-0">
-            {project.metadata.title}
-          </h1>
+          <div className="flex gap-2">
+            <h1 className="text-7xl lg:text-9xl lg:leading-23 lg:mb-0 leading-12 mb-0">
+              {project.metadata.title}
+            </h1>
+            <span className="text-sm lg:text-lg">[ {project.metadata.timeline} ]</span>
+          </div>
         )}
         {renderMeta ? (
           renderMeta(project)
@@ -47,6 +50,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
                 {tag.trim()}
               </span>
             ))}
+            <p>for: &nbsp;&nbsp;<span className="italic">{project.metadata.client}</span></p>
             <p>{project.metadata.summary}</p>
           </div>
         )}

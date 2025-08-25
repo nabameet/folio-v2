@@ -1,5 +1,7 @@
 export type MDXMetadata = {
   title: string;
+  timeline: string;
+  client: string;
   publishedAt: string;
   summary: string;
   tags: string; // Comma-separated
