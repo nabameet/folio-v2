@@ -1,12 +1,30 @@
-// No more speaking. Best impact. Leave at bol
+// WHAT'S NEXT, BRO? NO RUMINATING.
+
+// ------------------------------------------------------------------------------------
+
+// TODAY:
+
+// DONE:  Write year, scope, client in each project
+// DONE:  Make the footer
+// TODO:  Make the build together section like nivedha with a clear call to action
+// TODO:  Background change to image
+// TODO:  Logo resizes and goes to nav before page change
+// TODO:  Update Project copy (Remove vim line)
+// TODO:  Live
+
+// ------------------------------------------------------------------------------------
+
+// AFTER ABOVE IS DONE:
 
 // TODO:  Load entire website upfront
 // TODO:  Loader ("nabameet" being written like Apple's "hello")
-// TODO:  Background change to image
-// TODO:  Play Page
 // TODO?: Visuals on home page
 // TODO:  FIX: Cursor doesn't resize on page change, stays big
-// TODO:  COMPLETE FIX: Project Page (Temp Patchwork Done)
+// TODO:  Fix work page metadata, get it checked by ai first, then soumit
+// LATER: Play Page
+// LATER: COMPLETE FIX: Project Page (Temp Patchwork Done)
+
+// ------------------------------------------------------------------------------------
 
 import Logo from "@/components/logo/Logo";
 import { getAllContent } from "@/cms/utils/mdx";
