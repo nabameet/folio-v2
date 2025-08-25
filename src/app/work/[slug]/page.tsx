@@ -17,7 +17,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return getProjectMetadata({ slug, author: "Your Name" });
+  return getProjectMetadata({ slug, author: "nabameet" });
 }
 
 export default async function ProjectPage({
