@@ -2,25 +2,31 @@
 
 // ------------------------------------------------------------------------------------
 
-// TODAY:
+// TODAY: (DAY 2 - over, DAY 3 upcoming - 27/8/2025)
 
 // DONE:  Write year, scope, client in each project
 // DONE:  Make the footer
 // DONE:  Change info copy (Figure out, optimize)
-// TODO:  Update Project copy (Remove vim line)
-// CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
-// TODO:  Make the build together section like nivedha with a clear call to action
+// DONE:  Update Project copy (Remove vim line)
+// DONE:  Add hmu in footer (CTA)
+
+// DONE:  CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
+
+// TODO:  Fix Project List's order
 // TODO:  Good scroll
 // TODO:  Background change to image
 // TODO:  Additional project info (tags) on homepage
 // TODO:  Logo resizes and goes to nav before page change
+// TODO:  Load entire website upfront
+// TODO:  Basic Loader (1-100% followed by handwritten nabameet stroke to fill like before)
 // TODO:  Live
 
 // ------------------------------------------------------------------------------------
 
 // AFTER ABOVE IS DONE:
 
-// TODO:  Load entire website upfront
+// TODO:  Page Transitions
+// TODO:  Make the build together section like nivedha with a clear call to action
 // TODO:  Loader ("nabameet" being written like Apple's "hello")
 // TODO?: Visuals on home page
 // TODO:  FIX: Cursor doesn't resize on page change, stays big
