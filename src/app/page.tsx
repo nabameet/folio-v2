@@ -6,9 +6,9 @@
 
 // DONE:  Write year, scope, client in each project
 // DONE:  Make the footer
+// DONE:  Change info copy (Figure out, optimize)
 // TODO:  Update Project copy (Remove vim line)
 // CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
-// TODO:  Change info copy (Figure out, optimize)
 // TODO:  Make the build together section like nivedha with a clear call to action
 // TODO:  Good scroll
 // TODO:  Background change to image
