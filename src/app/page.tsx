@@ -8,8 +8,11 @@
 // DONE:  Make the footer
 // TODO:  Update Project copy (Remove vim line)
 // CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
+// TODO:  Change info copy (Figure out, optimize)
 // TODO:  Make the build together section like nivedha with a clear call to action
+// TODO:  Good scroll
 // TODO:  Background change to image
+// TODO:  Additional project info (tags) on homepage
 // TODO:  Logo resizes and goes to nav before page change
 // TODO:  Live
 
