@@ -11,7 +11,7 @@ export default function InfoContact({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <h1 className="">{children}</h1>
+      {children}
       <ul>
         <li className="">
           mail: &nbsp;&nbsp;

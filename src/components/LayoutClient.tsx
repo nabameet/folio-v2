@@ -19,10 +19,10 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
     { type: "button", label: "info", onClick: toggleInfo },
   ];
 
-  const aboutText =
-    "hi, i'm nabameet, a visual designer and creative developer working from my dorm room at delhi technological university. while my more expressive projects often explore the darker nuances of life, my brand design work is crafted to resonate with market research and connect deeply with my client’s audience.";
+  const aboutText = "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 
-  const contactTitleText = "hmu? available worldwide.";
+  const contactPrechorusText = "rather break the mold than play it safe?";
+  const contactTitleText = " hmu.";
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
   return (
@@ -32,9 +32,15 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
         <WorkPlayToggle />
       </Nav>
       <InfoDrawer isOpen={isInfoOpen}>
-        <InfoAbout>{aboutText}</InfoAbout>
+        <InfoAbout>
+          <p>{aboutText}</p>
+        </InfoAbout>
         <InfoContact email={email} xUsername={xUsername}>
-          {contactTitleText}
+          <p>
+            {contactPrechorusText}
+            <br />
+            {contactTitleText}
+          </p>
         </InfoContact>
       </InfoDrawer>
       <div className="">{children}</div>
