@@ -24,7 +24,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
     <section
       className={clsx(
         className,
-        "px-8 py-40 w-full lowercase md:px-12 md:pt-52"
+        "px-8 pt-40 pb-20 md:py-40 w-full lowercase md:px-12 md:pt-52"
       )}
     >
       <article className="max-w-full lg:prose-p:max-w-xl lg:prose-headings:max-w-xl lg:prose-h1:max-w-full w-full text-justify prose lg:prose-xl text-foreground prose-headings:text-foreground prose-headings:font-normal prose-headings:tracking-tighter prose-p:leading-snug">
