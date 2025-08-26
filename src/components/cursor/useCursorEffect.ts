@@ -26,6 +26,11 @@ export const useCursorEffect = () => {
       gsap.to(follower, { scale: 1, duration: 0.3, ease: "power2.out" });
     };
 
+    // FAIL: Tried to use mouse click resize to fix the cursor shrinking issue
+    // const handleMouseClick = () => {
+    //   gsap.to(follower, { scale: .5, duration: 0.3, ease: "power2.out" });
+    // };
+
     gsap.set(follower, { xPercent: -50, yPercent: -50, scale: 1 });
     gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 
@@ -48,9 +53,11 @@ export const useCursorEffect = () => {
     observer.observe(document.body, { childList: true, subtree: true });
 
     window.addEventListener("mousemove", move);
+    // window.addEventListener("click", handleMouseClick); // Add click listener
 
     return () => {
       window.removeEventListener("mousemove", move);
+      // window.removeEventListener("click", handleMouseClick);
       observer.disconnect();
       // Optionally: remove listeners from links here
     };
