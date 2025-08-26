@@ -3,6 +3,7 @@ import React from "react";
 import { MDXContentRenderer } from "./MDXContentRenderer";
 import { MDXContent } from "../types";
 import clsx from "clsx";
+import { notFound } from "next/navigation";
 
 export type ProjectDetailProps = {
   project: MDXContent;
@@ -17,7 +18,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
   renderMeta,
   className,
 }) => {
-  if (!project) return <div>Project not found.</div>;
+  // if (!project) return <h1>project not found, check url</h1> // already checked in page.tsx [slug]
 
   return (
     <section

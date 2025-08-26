@@ -4,6 +4,7 @@ import {
   getProjectMetadata,
 } from "@/cms";
 import { getAllContent } from "@/cms/utils/mdx";
+import { notFound } from "next/navigation";
 
 // Generates all project pages at build time
 export async function generateStaticParams() {
@@ -28,7 +29,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = getAllContent().find((p) => p.slug === slug);
   if (!project) {
-    return <div>Project not found</div>;
+    return notFound();
   }
   return <ProjectDetail project={project} />;
 }
