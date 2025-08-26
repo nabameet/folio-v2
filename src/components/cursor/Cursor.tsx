@@ -12,7 +12,7 @@ export const Cursor = () => {
           bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,1),rgba(255,255,255,0)),url('/noise.svg')]
           [filter:contrast(130%)_brightness(1000%)_invert(100%)]"
       />
-      <div className="cursorCustom fixed size-1 bg-white mix-blend-difference rounded-full pointer-events-none z-[9999]" />
+      <div className="cursorCustom fixed size-1 bg-background mix-blend-difference rounded-full pointer-events-none z-[9999]" />
     </>
   );
 };
