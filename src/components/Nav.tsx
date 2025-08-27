@@ -19,7 +19,7 @@ export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => {
     previousPath = "/";
   }
   return (
-    <nav className="flex fixed text-background mix-blend-difference z-50 gap-12 justify-between p-8 w-full md:p-12">
+    <nav className="flex fixed text-background dark:text-foreground mix-blend-difference z-50 gap-12 justify-between p-8 w-full md:p-12">
       <Link
         className={currentPath === "/" ? "invisible" : "visible"}
         href={previousPath}
