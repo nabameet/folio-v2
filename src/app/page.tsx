@@ -57,8 +57,8 @@ export default function Home() {
   // onmouseenter -> currentImage updates, showImage = true
   // onmouseleave -> showImage = false
 
-  let showImage = false;
-  let currentImage: {src: string, alt: string} = {
+  const showImage = false;
+  const currentImage: {src: string, alt: string} = {
     src: "/filmlandscape.jpg", alt: "smth"
   }
   
