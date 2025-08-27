@@ -24,13 +24,15 @@ export const ProjectList: React.FC<ProjectListProps> = ({
             renderItem(project)
           ) : (
             <li key={index} className="">
-              <Link href={cmsConfig.base_path + "/" + project.slug}>
+              <Link className="flex gap-2" href={cmsConfig.base_path + "/" + project.slug}>
                 <span className="pl-8 pr-2 text-sm border rounded-[100%]">
                   {index + 1}
                 </span>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <span className="italic underline">
-                  {project.metadata.title}
+                <span className="flex gap-1">
+                  <span className="italic underline">
+                    {project.metadata.title}
+                  </span>
+                  <span className="text-xs">[ {project.metadata.tags} ]</span>
                 </span>
                 {/* <p>{project.metadata.summary}</p> */}
               </Link>

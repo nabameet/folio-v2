@@ -12,10 +12,10 @@
 
 // DONE:  CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
 
-// TODO:  Fix Project List's order
+// DONE:  Additional project info (tags) on homepage
 // TODO:  Good scroll
 // TODO:  Background change to image
-// TODO:  Additional project info (tags) on homepage
+// TODO:  Fix Project List's order
 // TODO:  Logo resizes and goes to nav before page change
 // TODO:  Load entire website upfront
 // TODO:  Basic Loader (1-100% followed by handwritten nabameet stroke to fill like before)
