@@ -34,7 +34,7 @@ export default function Footer() {
 			<Link
         target="_blank"
         rel="noopener noreferrer"
-        className="italic underline"
+        className="italic underline text-center"
         href={"mailto:" + email}
       >
         build together?
