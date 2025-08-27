@@ -65,11 +65,19 @@ export default function Home() {
   
   return (
     <>
+<<<<<<< HEAD
       <main className="flex relative justify-center stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground items-center w-full h-screen">
         <Logo className="w-full h-full fixed" />
         <Image className={`w-full h-full fixed -z-50 object-cover ${showImage? "visible": "invisible"}`} src={currentImage.src} alt={currentImage.alt} width={1400} height={1080}></Image>
         <ProjectList
           className="absolute top-0 left-0 px-8 pt-40 md:px-12"
+=======
+      <main className="flex relative justify-center stroke-background dark:stroke-foreground text-background dark:text-foreground items-center w-full h-screen">
+        <Logo className="w-full h-full fixed" />
+        <Image className={`w-full h-full fixed -z-50 object-cover ${showImage? "visible": "invisible"}`} src={currentImage.src} alt={currentImage.alt} width={1400} height={1080}></Image>
+        <ProjectList
+          className="absolute top-0 left-0 px-8 pt-40 md:px-12 mix-blend-difference"
+>>>>>>> 29e46cae7c1869ca31b5d3f23525d6f13264adee
           projects={projects}
         />
       </main>
