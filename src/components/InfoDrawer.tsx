@@ -11,6 +11,7 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
   <AnimatePresence initial={false}>
     {isOpen && (
       <motion.section
+        className="text-background mix-blend-difference "
         id="info"
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: "auto", opacity: 1 }}
