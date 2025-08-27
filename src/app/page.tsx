@@ -14,6 +14,7 @@
 
 // DONE:  Additional project info (tags) on homepage
 // DONE:  Good scroll (Lenis)
+// DONE:  Dark mode fix
 // HALF:  Background change to image
 // TODO:  Fix Project List's order
 // TODO:  Logo resizes and goes to nav before page change
@@ -64,11 +65,11 @@ export default function Home() {
   
   return (
     <>
-      <main className="flex relative justify-center items-center w-full h-screen">
-        <Logo className="w-full h-full fixed stroke-background mix-blend-difference" />
+      <main className="flex relative justify-center stroke-background dark:stroke-foreground text-background dark:text-foreground items-center w-full h-screen">
+        <Logo className="w-full h-full fixed" />
         <Image className={`w-full h-full fixed -z-50 object-cover ${showImage? "visible": "invisible"}`} src={currentImage.src} alt={currentImage.alt} width={1400} height={1080}></Image>
         <ProjectList
-          className="absolute top-0 left-0 px-8 pt-40 md:px-12 text-background mix-blend-difference"
+          className="absolute top-0 left-0 px-8 pt-40 md:px-12 mix-blend-difference"
           projects={projects}
         />
       </main>
