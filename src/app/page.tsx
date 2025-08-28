@@ -16,7 +16,7 @@
 // DONE:  Good scroll (Lenis)
 // DONE:  Dark mode fix
 // DONE:  Load entire website assets upfront
-// TODO:  Basic Loader (1-100% followed by handwritten nabameet stroke to fill like before)
+// DONE:  Basic Loader (1-100%)
 // TODO:  Fix Project List's order
 // HALF:  Background change to image
 // TODO:  Logo resizes and goes to nav before page change

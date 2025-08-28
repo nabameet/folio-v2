@@ -32,7 +32,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
                   <span className="italic underline">
                     {project.metadata.title}
                   </span>
-                  <span className="text-xs">[ {project.metadata.tags} ]</span>
+                  {/* <span className="text-xs">[ {project.metadata.tags} ]</span> */}
                 </span>
                 {/* <p>{project.metadata.summary}</p> */}
               </Link>

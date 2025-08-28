@@ -1,5 +1,5 @@
 // Auto-generated image manifest
-// Generated on: 2025-08-28T15:04:47.907Z
+// Generated on: 2025-08-28T16:45:49.394Z
 // Total images: 34
 
 export const ALL_IMAGES: readonly string[] = [
