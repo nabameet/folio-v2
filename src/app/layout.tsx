@@ -1,5 +1,3 @@
-// No more speaking. Best impact. Leave at bol
-
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
 import { LayoutClient } from "@/components/LayoutClient";
@@ -29,7 +27,7 @@ export default function RootLayout({
         <body
           className={`${ebGaramond.className} tracking-tighter leading-tight antialiased`}
         >
-          <LayoutClient>{children}</LayoutClient>
+            <LayoutClient>{children}</LayoutClient>
         </body>
       </ReactLenis>
     </html>

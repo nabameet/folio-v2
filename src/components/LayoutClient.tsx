@@ -10,6 +10,7 @@ import { NavItem } from "@/types/nav";
 import InfoAbout from "@/components/info/InfoAbout";
 import InfoContact from "@/components/info/InfoContact";
 import Footer from "@/components/Footer";
+import ImagePreloader from "@/components/ImagePreloader";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -28,6 +29,8 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Cursor />
+      <ImagePreloader>
+        
       <Nav isInfoOpen={isInfoOpen} items={navItems}>
         <WorkPlayToggle />
       </Nav>
@@ -45,6 +48,8 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
       </InfoDrawer>
       <div className="">{children}</div>
       <Footer />
+      
+      </ImagePreloader>
     </>
   );
 };

@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
+    "generate-image-manifest": "bun scripts/generate-image-manifest.ts",
+    "dev": "bun --bun run generate-image-manifest && next dev --turbopack",
+    "build": "bun --bun run generate-image-manifest && next build",
     "start": "next start",
     "lint": "next lint"
   },

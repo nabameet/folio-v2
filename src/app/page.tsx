@@ -15,11 +15,11 @@
 // DONE:  Additional project info (tags) on homepage
 // DONE:  Good scroll (Lenis)
 // DONE:  Dark mode fix
-// HALF:  Background change to image
-// TODO:  Fix Project List's order
-// TODO:  Logo resizes and goes to nav before page change
-// TODO:  Load entire website upfront
+// DONE:  Load entire website assets upfront
 // TODO:  Basic Loader (1-100% followed by handwritten nabameet stroke to fill like before)
+// TODO:  Fix Project List's order
+// HALF:  Background change to image
+// TODO:  Logo resizes and goes to nav before page change
 // TODO:  Live
 
 // ------------------------------------------------------------------------------------
@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <>
       <main className="flex relative justify-center stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground items-center w-full h-screen">
-        <Logo className="w-full h-full fixed" />
+        <Logo className="w-full h-full" />
         <Image className={`w-full h-full fixed -z-50 object-cover ${showImage? "visible": "invisible"}`} src={currentImage.src} alt={currentImage.alt} width={1400} height={1080}></Image>
         <ProjectList
           className="absolute top-0 left-0 px-8 pt-40 md:px-12"
