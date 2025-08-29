@@ -30,7 +30,7 @@ export default function InfoContact({
             target="_blank"
             rel="noopener noreferrer"
             className="italic underline"
-            href={"mailto:" + email}
+            href="https://drive.google.com/file/d/1BtbwcbkvYfwoxPPAFxxUBP9ejmmKYGm6/view?usp=sharing"
           >
             resume
           </Link>
