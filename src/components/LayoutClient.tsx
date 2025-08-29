@@ -28,8 +28,8 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const xUsername = "nabameet";
   return (
     <>
-      <Cursor />
       <ImagePreloader>
+      <Cursor />
         
       <Nav isInfoOpen={isInfoOpen} items={navItems}>
         <WorkPlayToggle />
