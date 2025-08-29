@@ -17,6 +17,8 @@
 // DONE:  Dark mode fix
 // DONE:  Load entire website assets upfront
 // DONE:  Basic Loader (1-100%)
+// DONE:  Updated Colors
+// TODO:  Added Resume Link
 // HALF:  Background change to image
 // TODO:  Add Fears to Fathom
 // TODO:  Add Vaari
