@@ -11,6 +11,7 @@ import InfoAbout from "@/components/info/InfoAbout";
 import InfoContact from "@/components/info/InfoContact";
 import Footer from "@/components/Footer";
 import ImagePreloader from "@/components/ImagePreloader";
+import Link from "next/link";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -23,7 +24,7 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const aboutText = "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 
   const contactPrechorusText = "rather break the mold than play it safe?";
-  const contactTitleText = " hmu.";
+  const contactTitleText = "i'm in. ";
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
   return (
@@ -37,13 +38,23 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
       <InfoDrawer isOpen={isInfoOpen}>
         <InfoAbout>
           <p>{aboutText}</p>
-        </InfoAbout>
-        <InfoContact email={email} xUsername={xUsername}>
           <p>
             {contactPrechorusText}
             <br />
             {contactTitleText}
-          </p>
+          send a &nbsp;
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            className="italic underline"
+            href={"mailto:" + email}
+          >
+            {email}
+          </Link>
+        </p>
+        </InfoAbout>
+        <InfoContact email={email} xUsername={xUsername}>
+          <p></p>
         </InfoContact>
       </InfoDrawer>
       <div className="">{children}</div>
