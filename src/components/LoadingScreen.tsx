@@ -55,7 +55,7 @@ export default function LoadingScreen({
     }`}>
 
       <div className="w-full h-full flex flex-col justify-end text-right">
-				<div className="pb-7 md:p-10">
+				<div className="p-7 md:p-10">
 					<p>
           {roundedProgress}%
         </p>
