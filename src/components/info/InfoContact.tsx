@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 export default function InfoContact({
-  email,
+  // email,
   xUsername,
   children,
 }: {
-  email: string;
+  // email: string;
   xUsername: string;
   children: React.ReactNode;
 }) {

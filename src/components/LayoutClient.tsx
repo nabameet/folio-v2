@@ -53,7 +53,7 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
           </Link>
         </p>
         </InfoAbout>
-        <InfoContact email={email} xUsername={xUsername}>
+        <InfoContact xUsername={xUsername}>
           <p></p>
         </InfoContact>
       </InfoDrawer>
