@@ -53,6 +53,7 @@ import Logo from "@/components/logo/Logo";
 import { getAllContent } from "@/cms/utils/mdx";
 import { ProjectList } from "@/cms";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const projects = getAllContent();
@@ -76,6 +77,7 @@ export default function Home() {
           className="absolute top-0 left-0 px-8 pt-40 md:px-12"
           projects={projects}
         />
+        <Footer />
       </main>
     </>
   );

@@ -12,6 +12,7 @@ import InfoContact from "@/components/info/InfoContact";
 import Footer from "@/components/Footer";
 import ImagePreloader from "@/components/ImagePreloader";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -27,6 +28,9 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const contactTitleText = "i'm in. ";
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
+
+    const currentPath = usePathname();
+  
   return (
     <>
       <ImagePreloader>
@@ -58,7 +62,7 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
         </InfoContact>
       </InfoDrawer>
       <div className="">{children}</div>
-      <Footer />
+      {currentPath === '/' || currentPath === '/play' ? "" : <Footer />}
       
       </ImagePreloader>
     </>

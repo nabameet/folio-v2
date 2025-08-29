@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Logo from "@/components/logo/Logo";
 
 export default function Play() {
@@ -9,6 +10,7 @@ export default function Play() {
         coming soon:
         <span className="italic">under construction</span>
       </p>
+      <Footer />
     </main>
     </>
   );
