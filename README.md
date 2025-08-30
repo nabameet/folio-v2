@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Folio version 2
 
-## Getting Started
+## TODO
 
-First, run the development server:
+// WHAT'S NEXT, BRO? NO RUMINATING.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+// ------------------------------------------------------------------------------------
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+// TODAY: (DAY 2 - over, DAY 3 upcoming - 27/8/2025)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+// DONE:  Write year, scope, client in each project
+// DONE:  Make the footer
+// DONE:  Change info copy (Figure out, optimize)
+// DONE:  Update Project copy (Remove vim line)
+// DONE:  Add hmu in footer (CTA)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+// DONE:  CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
 
-## Learn More
+// DONE:  Additional project info (tags) on homepage
+// DONE:  Good scroll (Lenis)
+// DONE:  Dark mode fix
+// DONE:  Load entire website assets upfront
+// DONE:  Basic Loader (1-100%)
+// DONE:  Updated Colors
+// DONE:  Fixed Resume Link
+// HALF:  Background change to image
+// TODO:  Add Fears to Fathom
+// TODO:  Add Vaari
+// TODO:  Fix Project List's order
+// TODO:  Logo resizes and goes to nav before page change
+// TODO:  Live
 
-To learn more about Next.js, take a look at the following resources:
+// ------------------------------------------------------------------------------------
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+// DETAILS:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+// TODO: When info is visible, push fixed footer down with rest of content
+// TODO: Make info collapse animation the same as expand
+// TODO: on project page, info should show even when project is scrolled down.
 
-## Deploy on Vercel
+// ------------------------------------------------------------------------------------
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+// AFTER ABOVE IS DONE:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+// TODO:  Page Transitions
+// TODO:  Make the build together section like nivedha with a clear call to action
+// TODO:  Loader ("nabameet" being written like Apple's "hello")
+// TODO?: Visuals on home page
+// TODO:  FIX: Cursor doesn't resize on page change, stays big
+// TODO:  Fix work page metadata, get it checked by ai first, then soumit
+// LATER: Play Page
+// LATER: COMPLETE FIX: Project Page (Temp Patchwork Done)
+
+// ------------------------------------------------------------------------------------
