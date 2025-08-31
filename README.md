@@ -23,10 +23,9 @@
 // DONE:  Basic Loader (1-100%)
 // DONE:  Updated Colors
 // DONE:  Fixed Resume Link
+// DONE:  Add Fears to Fathom
+// DONE:  Fix Project List's order
 // HALF:  Background change to image
-// TODO:  Add Fears to Fathom
-// TODO:  Add Vaari
-// TODO:  Fix Project List's order
 // TODO:  Logo resizes and goes to nav before page change
 // TODO:  Live
 
