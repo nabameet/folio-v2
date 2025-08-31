@@ -15,11 +15,16 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   renderItem,
   className,
 }) => {
+
+  const sortedProjects = projects.sort((a, b) => 
+    new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  );
+
   return (
     <div className={clsx("flex flex-col gap-4 lowercase", className)}>
       <h1 className="">selected works:</h1>
       <ul className="">
-        {projects.map((project, index) =>
+        {sortedProjects.map((project, index) =>
           renderItem ? (
             renderItem(project)
           ) : (
