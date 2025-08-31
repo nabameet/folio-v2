@@ -25,6 +25,7 @@
 // DONE:  Fixed Resume Link
 // DONE:  Add Fears to Fathom
 // DONE:  Fix Project List's order
+// DONE:  Fix ProjectImageGrid (kinda, still left)
 // HALF:  Background change to image
 // TODO:  Logo resizes and goes to nav before page change
 // TODO:  Live
