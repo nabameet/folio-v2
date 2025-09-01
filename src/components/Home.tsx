@@ -31,7 +31,7 @@ export default function Home({projects} : {projects: MDXContent[]}) {
     <>
 		<main className="flex relative justify-center items-center w-full h-screen"> {/* stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground */}
         <Logo className="w-full h-full" />
-        <Image className={`w-full h-full fixed -z-50 object-cover ${showImage? "visible": "invisible"}`} src={currentImage?.src || "/filmlandscape.jpg"} alt={currentImage?.alt || "default background"} width={1400} height={1080} />
+        { currentImage && <Image className={`w-1/2 -z-50 fixed right-0 px-8 md:px-12 object-cover ${showImage? "visible": "invisible"}`} src={currentImage?.src} alt={currentImage?.alt} width={1400} height={1080} /> }
         <ProjectList
           className="absolute top-0 left-0 px-8 pt-40 md:px-12"
           projects={projects}
