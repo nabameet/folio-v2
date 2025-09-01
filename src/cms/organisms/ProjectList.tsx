@@ -8,7 +8,7 @@ export type ProjectListProps = {
   projects: MDXContent[];
   renderItem?: (project: MDXContent) => React.ReactNode;
   className?: string;
-  onProjectHover?: (project: any) => void;
+  onProjectHover?: (project: MDXContent) => void;
   onProjectHoverEnd?: () => void;
 };
 

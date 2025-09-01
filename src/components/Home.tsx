@@ -15,7 +15,7 @@ export default function Home({projects} : {projects: MDXContent[]}) {
   const showImage = currentImage !== null;
 
   // Handle project hover - set the current image
-  const handleProjectHover = (project: any) => {
+  const handleProjectHover = (project: MDXContent) => {
     setCurrentImage({
       src: project.metadata.image,
       alt: project.metadata.title
