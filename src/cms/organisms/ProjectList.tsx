@@ -32,19 +32,13 @@ export const ProjectList: React.FC<ProjectListProps> = ({
           renderItem ? (
             renderItem(project)
           ) : (
-            <li key={index} className="" onMouseEnter={() => onProjectHover?.(project)} onMouseLeave={() => onProjectHoverEnd?.()}>
-              <Link className="flex gap-2" href={cmsConfig.base_path + "/" + project.slug}>
+            <li key={index} className="flex gap-2">
                 <span className="pl-8 pr-2 text-sm border rounded-[100%]">
                   {index + 1}
                 </span>
-                <span className="flex gap-1">
-                  <span className="italic underline">
-                    {project.metadata.title}
-                  </span>
-                  {/* <span className="text-xs">[ {project.metadata.tags} ]</span> */}
-                </span>
-                {/* <p>{project.metadata.summary}</p> */}
-              </Link>
+                <Link className="italic underline" href={cmsConfig.base_path + "/" + project.slug}  onMouseEnter={() => onProjectHover?.(project)} onMouseLeave={() => onProjectHoverEnd?.()}>
+                  {project.metadata.title}
+                </Link>
             </li>
           )
         )}
