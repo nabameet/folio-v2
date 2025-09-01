@@ -26,7 +26,7 @@
 // DONE:  Add Fears to Fathom
 // DONE:  Fix Project List's order
 // DONE:  Fix ProjectImageGrid (kinda, still left)
-// HALF:  Background change to image
+// DONE:  Background change to image (BUT NOT LOOKING GOOD HAVE TO REMOVE)
 // TODO:  Logo resizes and goes to nav before page change
 // TODO:  Live
 

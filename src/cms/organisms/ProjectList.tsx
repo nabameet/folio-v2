@@ -8,12 +8,16 @@ export type ProjectListProps = {
   projects: MDXContent[];
   renderItem?: (project: MDXContent) => React.ReactNode;
   className?: string;
+  onProjectHover?: (project: any) => void;
+  onProjectHoverEnd?: () => void;
 };
 
 export const ProjectList: React.FC<ProjectListProps> = ({
   projects,
   renderItem,
   className,
+  onProjectHover, 
+  onProjectHoverEnd
 }) => {
 
   const sortedProjects = projects.sort((a, b) => 
@@ -28,7 +32,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
           renderItem ? (
             renderItem(project)
           ) : (
-            <li key={index} className="">
+            <li key={index} className="" onMouseEnter={() => onProjectHover?.(project)} onMouseLeave={() => onProjectHoverEnd?.()}>
               <Link className="flex gap-2" href={cmsConfig.base_path + "/" + project.slug}>
                 <span className="pl-8 pr-2 text-sm border rounded-[100%]">
                   {index + 1}
