@@ -30,6 +30,8 @@
 // DONE: Better looking project hover instead of background change
 // DONE: nabameet fading in loader
 // DONE: Remove blend difference from play
+// DONE: Absolutely Necessary Optimizations
+// DONE: Temp Fixes for Larger Screens (NEEDS MORE SCRUTINY)
 // TODO: Favicon
 // TODO: Metadata Homepage
 // TODO: Metadata projects
