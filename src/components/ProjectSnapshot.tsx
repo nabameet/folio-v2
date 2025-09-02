@@ -7,14 +7,10 @@ export default function ProjectSnapshot({
   showImage: boolean;
   currentImage: { src: string; alt: string; tags: string };
 }) {
-  const getBlurDataURL = (src: string) => {
-    return `/_next/image?url=${encodeURIComponent(src)}&w=16&q=1`;
-  };
-
   return (
     <div className="flex flex-col items-end fixed right-0 py-18 px-8 md:py-36 md:px-12 h-full w-auto z-50">
       <Image
-        className={`object-cover h-full w-full ${
+        className={`object-cover dark:bg-[#2c2e33] bg-[#e3dbd1] h-full w-full ${
           showImage ? "visible" : "invisible"
         }`}
         src={currentImage.src}
@@ -23,8 +19,6 @@ export default function ProjectSnapshot({
         height={1080}
         loading="eager"
         priority
-        placeholder="blur"
-        blurDataURL={getBlurDataURL(currentImage.src)}
       />
       <div>
         {currentImage.tags.split(",").map((tag, key) => (
