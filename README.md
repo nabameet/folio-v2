@@ -35,7 +35,7 @@
 // DONE: Favicon
 // DONE: Metadata + Opengraph & Twitter for Homepage
 // DONE: Metadata + Opengraph & Twitter for Projects
-// TODO: Live
+// DONE: Live
 
 // ------------------------------------------------------------------------------------
 
