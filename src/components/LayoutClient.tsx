@@ -22,48 +22,48 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
     { type: "button", label: "info", onClick: toggleInfo },
   ];
 
-  const aboutText = "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
+  const aboutText =
+    "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 
   const contactPrechorusText = "rather break the mold than play it safe?";
   const contactTitleText = "i'm in. ";
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
 
-    const currentPath = usePathname();
-  
+  const currentPath = usePathname();
+
   return (
     <>
       <ImagePreloader>
-      <Cursor />
-        
-      <Nav isInfoOpen={isInfoOpen} items={navItems}>
-        <WorkPlayToggle />
-      </Nav>
-      <InfoDrawer isOpen={isInfoOpen}>
-        <InfoAbout>
-          <p>{aboutText}</p>
-          <p>
-            {contactPrechorusText}
-            <br />
-            {contactTitleText}
-          send a &nbsp;
-          <Link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="italic underline"
-            href={"mailto:" + email}
-          >
-            {email}
-          </Link>
-        </p>
-        </InfoAbout>
-        <InfoContact xUsername={xUsername}>
-          <p></p>
-        </InfoContact>
-      </InfoDrawer>
-      <div className="">{children}</div>
-      {currentPath === '/' || currentPath === '/play' ? "" : <Footer />}
-      
+        <Cursor />
+
+        <Nav isInfoOpen={isInfoOpen} items={navItems}>
+          <WorkPlayToggle />
+        </Nav>
+        <InfoDrawer isOpen={isInfoOpen}>
+          <InfoAbout>
+            <p>{aboutText}</p>
+            <p>
+              {contactPrechorusText}
+              <br />
+              {contactTitleText}
+              send a &nbsp;
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                className="italic underline"
+                href={"mailto:" + email}
+              >
+                {email}
+              </Link>
+            </p>
+          </InfoAbout>
+          <InfoContact xUsername={xUsername}>
+            <p></p>
+          </InfoContact>
+        </InfoDrawer>
+        <div className="">{children}</div>
+        {currentPath === "/" || currentPath === "/play" ? "" : <Footer />}
       </ImagePreloader>
     </>
   );

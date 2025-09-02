@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
 import { LayoutClient } from "@/components/LayoutClient";
 import "./globals.css";
-import {ReactLenis} from "@/utils/lenis";
+import { ReactLenis } from "@/utils/lenis";
 
 const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
@@ -25,9 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <ReactLenis root>
         <body
-          className={`${ebGaramond.className} tracking-tighter leading-tight antialiased`}
+          className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
         >
-            <LayoutClient>{children}</LayoutClient>
+          <LayoutClient>{children}</LayoutClient>
         </body>
       </ReactLenis>
     </html>

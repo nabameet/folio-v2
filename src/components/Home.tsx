@@ -34,9 +34,9 @@ export default function Home({ projects }: { projects: MDXContent[] }) {
 
   return (
     <>
-      <main className="flex relative justify-center items-center w-full h-screen">
+      <main className="relative flex h-screen w-full items-center justify-center">
         {/* stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground */}
-        <Logo className="w-full h-full max-w-screen-2xl" />
+        <Logo className="h-full w-full max-w-screen-2xl" />
         {currentImage && (
           <ProjectSnapshot showImage={showImage} currentImage={currentImage} />
         )}

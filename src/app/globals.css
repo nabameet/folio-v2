@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #F4F1EC;
+  --background: #f4f1ec;
   --foreground: #0b0e13;
 }
 
@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0b0e13;
-    --foreground: #F4F1EC;
+    --foreground: #f4f1ec;
   }
 }
 
@@ -30,14 +30,15 @@ body {
 }
 
 @theme {
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo,
-    monospace;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 2px solid transparent;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6),
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.6),
     0 16px 32px rgba(0, 0, 0, 0.12);
   backdrop-filter: url(#frosted);
   -webkit-backdrop-filter: url(#frosted);

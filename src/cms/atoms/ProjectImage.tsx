@@ -14,6 +14,6 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
     {...props}
     width={1920}
     height={1080}
-    className="flex-1 w-full min-w-0 h-auto object-contain"
+    className="h-auto w-full min-w-0 flex-1 object-contain"
   />
 );

@@ -1,7 +1,7 @@
-import React from 'react';
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
-import { ProjectImage } from '../atoms/ProjectImage';
-import { ProjectImageGrid } from '../molecules/ProjectImageGrid';
+import React from "react";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import { ProjectImage } from "../atoms/ProjectImage";
+import { ProjectImageGrid } from "../molecules/ProjectImageGrid";
 
 const defaultComponents = {
   img: ProjectImage,
@@ -9,10 +9,13 @@ const defaultComponents = {
   ProjectImageGrid,
 };
 
-export type MDXContentRendererProps = Omit<MDXRemoteProps, 'components'> & {
-  components?: MDXRemoteProps['components'];
+export type MDXContentRendererProps = Omit<MDXRemoteProps, "components"> & {
+  components?: MDXRemoteProps["components"];
 };
 
-export const MDXContentRenderer: React.FC<MDXContentRendererProps> = ({ components, ...props }) => (
+export const MDXContentRenderer: React.FC<MDXContentRendererProps> = ({
+  components,
+  ...props
+}) => (
   <MDXRemote {...props} components={{ ...defaultComponents, ...components }} />
-); 
+);

@@ -16,12 +16,13 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   projects,
   renderItem,
   className,
-  onProjectHover, 
-  onProjectHoverEnd
+  onProjectHover,
+  onProjectHoverEnd,
 }) => {
-
-  const sortedProjects = projects.sort((a, b) => 
-    new Date(b.metadata.publishedAt).getTime() - new Date(a.metadata.publishedAt).getTime()
+  const sortedProjects = projects.sort(
+    (a, b) =>
+      new Date(b.metadata.publishedAt).getTime() -
+      new Date(a.metadata.publishedAt).getTime(),
   );
 
   return (
@@ -33,14 +34,19 @@ export const ProjectList: React.FC<ProjectListProps> = ({
             renderItem(project)
           ) : (
             <li key={index} className="flex gap-2">
-                <span className="pl-8 pr-2 text-sm border rounded-[100%]">
-                  {index + 1}
-                </span>
-                <Link className="italic underline" href={cmsConfig.base_path + "/" + project.slug}  onMouseEnter={() => onProjectHover?.(project)} onMouseLeave={() => onProjectHoverEnd?.()}>
-                  {project.metadata.title}
-                </Link>
+              <span className="rounded-[100%] border pr-2 pl-8 text-sm">
+                {index + 1}
+              </span>
+              <Link
+                className="italic underline"
+                href={cmsConfig.base_path + "/" + project.slug}
+                onMouseEnter={() => onProjectHover?.(project)}
+                onMouseLeave={() => onProjectHoverEnd?.()}
+              >
+                {project.metadata.title}
+              </Link>
             </li>
-          )
+          ),
         )}
       </ul>
     </div>

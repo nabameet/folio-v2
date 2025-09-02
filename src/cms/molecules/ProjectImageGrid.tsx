@@ -6,4 +6,4 @@ export type ProjectImageGridProps = {
 
 export const ProjectImageGrid: React.FC<ProjectImageGridProps> = ({
   children,
-}) => <div className="flex gap-2 w-full overflow-hidden">{children}</div>; // temporarily removed it until i fix it
+}) => <div className="flex w-full gap-2 overflow-hidden">{children}</div>; // temporarily removed it until i fix it

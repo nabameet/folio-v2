@@ -1,10 +1,10 @@
 // components/ImagePreloader.tsx
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { useBulkImagePreloader } from '@/hooks/useBulkImagePreloader';
-import LoadingScreen from '@/components/LoadingScreen';
-import { ALL_IMAGES } from '@/lib/image-manifest';
+import { useState, useEffect, useRef } from "react";
+import { useBulkImagePreloader } from "@/hooks/useBulkImagePreloader";
+import LoadingScreen from "@/components/LoadingScreen";
+import { ALL_IMAGES } from "@/lib/image-manifest";
 
 interface ImagePreloaderProps {
   children: React.ReactNode;
@@ -15,9 +15,9 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
   const [startTime] = useState(() => Date.now());
   const initializationRef = useRef(false);
 
-  const { 
-    loadingProgress, 
-    isLoading, 
+  const {
+    loadingProgress,
+    isLoading,
     loadedImages,
     totalImages,
     startPreloading,
@@ -32,15 +32,15 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
     onComplete: () => {
       const loadTime = Date.now() - startTime;
       console.log(`Total preload time: ${loadTime}ms`);
-    }
+    },
   });
 
   // Initialize preloading only once
   useEffect(() => {
     if (initializationRef.current) return;
-    
+
     initializationRef.current = true;
-    
+
     // Add small delay to ensure component is mounted
     const timer = setTimeout(() => {
       startPreloading();
@@ -55,7 +55,7 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
       const timer = setTimeout(() => {
         setShowContent(true);
       });
-      
+
       return () => clearTimeout(timer);
     }
   }, [isLoading, showContent]);
@@ -71,10 +71,5 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
     );
   }
 
-  return (
-    <div
-    >
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }

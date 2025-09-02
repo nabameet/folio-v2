@@ -36,7 +36,7 @@ export const useCursorEffect = () => {
 
     function attachListeners() {
       const links = document.querySelectorAll(
-        "a, button, [data-cursor='hover']"
+        "a, button, [data-cursor='hover']",
       );
       links.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);

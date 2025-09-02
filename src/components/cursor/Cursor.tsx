@@ -7,12 +7,8 @@ export const Cursor = () => {
 
   return (
     <>
-      <div
-        className="cursorFollower fixed pointer-events-none size-20 mix-blend-difference rounded-full z-[9999]
-          bg-[radial-gradient(circle_at_50%_50%,rgba(11,14,19,1),rgba(255,255,255,0)),url('/noise.svg')]
-          [filter:contrast(130%)_brightness(1000%)_invert(100%)]"
-      />
-      <div className="cursorCustom fixed size-1 bg-background dark:bg-foreground mix-blend-difference rounded-full pointer-events-none z-[9999]" />
+      <div className="cursorFollower pointer-events-none fixed z-[9999] size-20 rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(11,14,19,1),rgba(255,255,255,0)),url('/noise.svg')] mix-blend-difference [filter:contrast(130%)_brightness(1000%)_invert(100%)]" />
+      <div className="cursorCustom bg-background dark:bg-foreground pointer-events-none fixed z-[9999] size-1 rounded-full mix-blend-difference" />
     </>
   );
 };

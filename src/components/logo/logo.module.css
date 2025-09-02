@@ -1,4 +1,4 @@
 .path {
-  @apply transition duration-700 origin-center;
+  @apply origin-center transition duration-700;
   transform-box: fill-box;
 }

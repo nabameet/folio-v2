@@ -8,9 +8,9 @@ export default function ProjectSnapshot({
   currentImage: { src: string; alt: string; tags: string };
 }) {
   return (
-    <div className="flex flex-col items-end justify-center fixed right-0 py-18 px-8 md:py-36 md:px-12 h-full max-w-1/2 w-auto z-50">
+    <div className="invisible fixed right-0 z-50 flex h-full w-auto flex-col items-end justify-center px-8 py-18 sm:visible md:px-12 md:py-36 xl:max-w-1/2">
       <Image
-        className={`object-cover dark:bg-[#2c2e33] bg-[#e3dbd1] w-full ${
+        className={`w-full bg-[#e3dbd1] object-cover dark:bg-[#2c2e33] ${
           showImage ? "visible" : "invisible"
         }`}
         src={currentImage.src}
@@ -24,7 +24,7 @@ export default function ProjectSnapshot({
         {currentImage.tags.split(",").map((tag, key) => (
           <span
             key={key}
-            className="pl-12 lg:pl-20 lg:pr-8 pr-4 text-xl lg:text-3xl border border-1.5 border-foreground rounded-[100%]"
+            className="border-1.5 border-foreground rounded-[100%] border pr-4 pl-12 text-xl lg:pr-8 lg:pl-20 lg:text-3xl"
           >
             {tag.trim()}
           </span>

@@ -56,7 +56,7 @@ export default function LoadingScreen({
         !isLoading && progress >= 100 ? "opacity-0" : "opacity-100"
       }`}
     >
-      <div className="w-full h-full flex flex-col justify-end">
+      <div className="flex h-full w-full flex-col justify-end">
         <div>
           <div className="p-7 md:p-10">
             <AnimatedLogotype />

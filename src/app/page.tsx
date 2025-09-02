@@ -4,7 +4,5 @@ import Home from "@/components/Home";
 export default function HomePage() {
   const projects = getAllContent();
 
-  return (
-    <Home projects={projects} />
-  );
+  return <Home projects={projects} />;
 }

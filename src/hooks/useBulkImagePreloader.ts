@@ -1,7 +1,7 @@
 // hooks/useBulkImagePreloader.ts
-'use client';
+"use client";
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from "react";
 
 interface PreloadedImage {
   src: string;
@@ -24,104 +24,109 @@ interface UseImagePreloaderReturn {
   totalImages: number;
   preloadResults: PreloadedImage[];
   startPreloading: () => void;
-	resetPreloader: () => void; // Add this line
-
+  resetPreloader: () => void; // Add this line
 }
 
 export function useBulkImagePreloader({
   images,
   timeout = 10000,
   onProgress,
-  onComplete
+  onComplete,
 }: UseImagePreloaderOptions): UseImagePreloaderReturn {
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
   const [failedImages, setFailedImages] = useState<string[]>([]);
   const [preloadResults, setPreloadResults] = useState<PreloadedImage[]>([]);
-  
+
   // Use refs to prevent multiple executions
   const hasStartedRef = useRef(false);
   const isPreloadingRef = useRef(false);
   const loadedImagesSetRef = useRef(new Set<string>());
   const failedImagesSetRef = useRef(new Set<string>());
 
-  const preloadSingleImage = useCallback((src: string): Promise<PreloadedImage> => {
-    return new Promise<PreloadedImage>((resolve) => {
-      // Check if already loaded or failed
-      if (loadedImagesSetRef.current.has(src) || failedImagesSetRef.current.has(src)) {
-        resolve({ 
-          src, 
-          success: loadedImagesSetRef.current.has(src), 
-          loadTime: 0 
+  const preloadSingleImage = useCallback(
+    (src: string): Promise<PreloadedImage> => {
+      return new Promise<PreloadedImage>((resolve) => {
+        // Check if already loaded or failed
+        if (
+          loadedImagesSetRef.current.has(src) ||
+          failedImagesSetRef.current.has(src)
+        ) {
+          resolve({
+            src,
+            success: loadedImagesSetRef.current.has(src),
+            loadTime: 0,
+          });
+          return;
+        }
+
+        const startTime = performance.now();
+        const img = new Image();
+        let resolved = false;
+
+        const cleanup = () => {
+          img.removeEventListener("load", handleLoad);
+          img.removeEventListener("error", handleError);
+        };
+
+        const handleLoad = () => {
+          if (resolved) return;
+          resolved = true;
+          cleanup();
+
+          const loadTime = performance.now() - startTime;
+          const result: PreloadedImage = { src, success: true, loadTime };
+
+          // Add to loaded set to prevent duplicates
+          loadedImagesSetRef.current.add(src);
+          setLoadedImages((prev) => {
+            if (prev.includes(src)) return prev;
+            return [...prev, src];
+          });
+
+          resolve(result);
+        };
+
+        const handleError = () => {
+          if (resolved) return;
+          resolved = true;
+          cleanup();
+
+          const loadTime = performance.now() - startTime;
+          const result: PreloadedImage = { src, success: false, loadTime };
+
+          // Add to failed set to prevent duplicates
+          failedImagesSetRef.current.add(src);
+          setFailedImages((prev) => {
+            if (prev.includes(src)) return prev;
+            return [...prev, src];
+          });
+
+          resolve(result);
+        };
+
+        // Set up timeout
+        const timeoutId = setTimeout(() => {
+          handleError();
+        }, timeout);
+
+        img.addEventListener("load", () => {
+          clearTimeout(timeoutId);
+          handleLoad();
         });
-        return;
-      }
 
-      const startTime = performance.now();
-      const img = new Image();
-      let resolved = false;
-
-      const cleanup = () => {
-        img.removeEventListener('load', handleLoad);
-        img.removeEventListener('error', handleError);
-      };
-
-      const handleLoad = () => {
-        if (resolved) return;
-        resolved = true;
-        cleanup();
-        
-        const loadTime = performance.now() - startTime;
-        const result: PreloadedImage = { src, success: true, loadTime };
-        
-        // Add to loaded set to prevent duplicates
-        loadedImagesSetRef.current.add(src);
-        setLoadedImages(prev => {
-          if (prev.includes(src)) return prev;
-          return [...prev, src];
+        img.addEventListener("error", () => {
+          clearTimeout(timeoutId);
+          handleError();
         });
-        
-        resolve(result);
-      };
 
-      const handleError = () => {
-        if (resolved) return;
-        resolved = true;
-        cleanup();
-        
-        const loadTime = performance.now() - startTime;
-        const result: PreloadedImage = { src, success: false, loadTime };
-        
-        // Add to failed set to prevent duplicates
-        failedImagesSetRef.current.add(src);
-        setFailedImages(prev => {
-          if (prev.includes(src)) return prev;
-          return [...prev, src];
-        });
-        
-        resolve(result);
-      };
-
-      // Set up timeout
-      const timeoutId = setTimeout(() => {
-        handleError();
-      }, timeout);
-
-      img.addEventListener('load', () => {
-        clearTimeout(timeoutId);
-        handleLoad();
+        // Start loading
+        img.src = src;
       });
-      
-      img.addEventListener('error', () => {
-        clearTimeout(timeoutId);
-        handleError();
-      });
-
-      // Start loading
-      img.src = src;
-    });
-  }, [timeout]);
+    },
+    [timeout],
+  );
 
   const startPreloading = useCallback(async () => {
     // Prevent multiple executions
@@ -131,9 +136,9 @@ export function useBulkImagePreloader({
 
     hasStartedRef.current = true;
     isPreloadingRef.current = true;
-    
+
     console.log(`🖼️ Starting to preload ${images.length} images...`);
-    
+
     try {
       let completedCount = 0;
       const totalImages = images.length;
@@ -141,30 +146,36 @@ export function useBulkImagePreloader({
 
       // Create unique image list to prevent duplicates
       const uniqueImages = [...new Set(images)];
-      
+
       const updateProgress = (result: PreloadedImage) => {
         completedCount++;
         results.push(result);
-        
+
         const progress = Math.min((completedCount / totalImages) * 100, 100);
         setLoadingProgress(progress);
         onProgress?.(progress);
 
         if (result.success) {
-          console.log(`✅ Loaded (${completedCount}/${totalImages}): ${result.src}`);
+          console.log(
+            `✅ Loaded (${completedCount}/${totalImages}): ${result.src}`,
+          );
         } else {
-          console.warn(`❌ Failed (${completedCount}/${totalImages}): ${result.src}`);
+          console.warn(
+            `❌ Failed (${completedCount}/${totalImages}): ${result.src}`,
+          );
         }
 
         if (completedCount >= totalImages) {
-          const successCount = results.filter(r => r.success).length;
-          const failedCount = results.filter(r => !r.success).length;
-          
-          console.log(`🎉 Preloading complete! ✅ ${successCount} loaded, ❌ ${failedCount} failed`);
-          
+          const successCount = results.filter((r) => r.success).length;
+          const failedCount = results.filter((r) => !r.success).length;
+
+          console.log(
+            `🎉 Preloading complete! ✅ ${successCount} loaded, ❌ ${failedCount} failed`,
+          );
+
           setPreloadResults(results);
           onComplete?.(results);
-          
+
           // Small delay for smooth UX transition
           setTimeout(() => {
             setIsLoading(false);
@@ -188,9 +199,8 @@ export function useBulkImagePreloader({
       });
 
       await Promise.all(preloadPromises);
-      
     } catch (error) {
-      console.error('Error in preloading process:', error);
+      console.error("Error in preloading process:", error);
       setIsLoading(false);
       isPreloadingRef.current = false;
     }
@@ -218,6 +228,6 @@ export function useBulkImagePreloader({
     preloadResults,
     startPreloading,
     // Add reset for debugging
-    resetPreloader
+    resetPreloader,
   };
 }

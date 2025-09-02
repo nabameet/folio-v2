@@ -18,7 +18,7 @@ export const WorkPlayToggle = () => {
           "relative inline-block",
           isWork
             ? "italic" // add for strikethrough: after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]
-            : ""
+            : "",
         )}
       >
         work
@@ -30,7 +30,7 @@ export const WorkPlayToggle = () => {
           "relative inline-block",
           isPlay
             ? "italic" // add for strikethrough: after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]
-            : ""
+            : "",
         )}
       >
         play

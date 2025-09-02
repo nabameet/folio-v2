@@ -1,6 +1,6 @@
 export default function InfoAbout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex md:items-end flex-col gap-4 w-full md:w-72">
+    <div className="flex w-full flex-col gap-4 md:w-72 md:items-end">
       {children}
     </div>
   );
