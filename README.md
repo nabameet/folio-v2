@@ -33,8 +33,8 @@
 // DONE: Absolutely Necessary Optimizations
 // DONE: Temp Fixes for Larger Screens (NEEDS MORE SCRUTINY)
 // DONE: Favicon
-// TODO: Metadata Homepage
-// TODO: Metadata projects
+// DONE: Metadata + Opengraph & Twitter for Homepage
+// TODO: Metadata + Opengraph & Twitter for Projects
 // TODO: Live
 
 // ------------------------------------------------------------------------------------
