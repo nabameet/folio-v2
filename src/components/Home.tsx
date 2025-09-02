@@ -35,7 +35,6 @@ export default function Home({ projects }: { projects: MDXContent[] }) {
   return (
     <>
       <main className="flex relative justify-center items-center w-full h-screen">
-        {" "}
         {/* stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground */}
         <Logo className="w-full h-full" />
         {currentImage && (

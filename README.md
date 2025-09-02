@@ -29,7 +29,7 @@
 // DONE: Background change to image (Removed)
 // DONE: Better looking project hover instead of background change
 // DONE: nabameet fading in loader
-// TODO: Remove blend difference from play
+// DONE: Remove blend difference from play
 // TODO: Favicon
 // TODO: Metadata Homepage
 // TODO: Metadata projects
