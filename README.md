@@ -34,7 +34,7 @@
 // DONE: Temp Fixes for Larger Screens (NEEDS MORE SCRUTINY)
 // DONE: Favicon
 // DONE: Metadata + Opengraph & Twitter for Homepage
-// TODO: Metadata + Opengraph & Twitter for Projects
+// DONE: Metadata + Opengraph & Twitter for Projects
 // TODO: Live
 
 // ------------------------------------------------------------------------------------
