@@ -27,16 +27,20 @@
 // DONE: Fix Project List's order
 // DONE: Fix ProjectImageGrid (kinda, still left)
 // DONE: Background change to image (Removed)
-// TODO: Better looking project hover instead of background change
-// TODO: Project Page transition
-// TODO: Logo resizes and goes to nav before page change
+// DONE: Better looking project hover instead of background change
+// DONE: nabameet fading in loader
+// TODO: Remove blend difference from play
+// TODO: Favicon
+// TODO: Metadata Homepage
+// TODO: Metadata projects
 // TODO: Live
 
 // ------------------------------------------------------------------------------------
 
 // DETAILS:
 
-// TODO: When info is visible, push fixed footer down with rest of content
+// DONE: When info is visible, push fixed footer down with rest of content
+// TODO: Logo resizes and goes to nav before page change
 // TODO: Make info collapse animation the same as expand
 // TODO: on project page, info should show even when project is scrolled down.
 

@@ -1,7 +1,8 @@
 // components/LoadingScreen.tsx
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
+import AnimatedLogotype from "./AnimatedLogotype";
 
 interface LoadingScreenProps {
   progress: number;
@@ -24,7 +25,7 @@ export default function LoadingScreen({
   // Smooth progress animation
   useEffect(() => {
     const interval = setInterval(() => {
-      setDisplayProgress(prev => {
+      setDisplayProgress((prev) => {
         const diff = progress - prev;
         if (Math.abs(diff) < 0.5) return progress;
         return prev + diff * 0.15;
@@ -50,30 +51,29 @@ export default function LoadingScreen({
   const roundedProgress = Math.round(displayProgress);
 
   return (
-    <div className={`fixed inset-0 z-50 transition-opacity duration-1000 ${
-      !isLoading && progress >= 100 ? 'opacity-0' : 'opacity-100'
-    }`}>
+    <div
+      className={`fixed inset-0 z-50 transition-opacity duration-1000 ${
+        !isLoading && progress >= 100 ? "opacity-0" : "opacity-100"
+      }`}
+    >
+      <div className="w-full h-full flex flex-col justify-end">
+        <div>
+          <div className="p-7 md:p-10">
+            <AnimatedLogotype />
+            <p>{roundedProgress}%</p>
 
-      <div className="w-full h-full flex flex-col justify-end text-right">
-				<div className="p-7 md:p-10">
-					<p>
-          {roundedProgress}%
-        </p>
-        
-        <p>
-          wait up, we booting...
-        </p>
-				</div>
-
-        <div className=""> {/* Progress bar */}
-          <div className="w-full h-1"> {/* Progress track */}
-            <div 
-              className="h-full bg-foreground transition-all duration-300 ease-out"
-              style={{ width: `${displayProgress}%` }}
-            /> {/* Progress fill */}
+            <p>wait up, we booting...</p>
           </div>
         </div>
 
+        {/* <div className="">
+          <div className="w-full h-1">
+            <div
+              className="h-full bg-foreground transition-all duration-300 ease-out"
+              style={{ width: `${displayProgress}%` }}
+            />
+          </div>
+        </div> */}
       </div>
     </div>
   );
