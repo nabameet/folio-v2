@@ -36,6 +36,7 @@
 // DONE: Metadata + Opengraph & Twitter for Homepage
 // DONE: Metadata + Opengraph & Twitter for Projects
 // DONE: Live
+// TODO: All optimizations - no homepage image loads later on
 
 // ------------------------------------------------------------------------------------
 

@@ -30,8 +30,8 @@ function getAllImages(dirPath: string, arrayOfFiles: string[] = []): string[] {
           // Convert to web path (remove 'public' prefix and normalize slashes)
           const webPath = fullPath
             .replace(/\\/g, "/") // Convert Windows backslashes
-            .replace(/^\.?\/public/, "") // Remove public prefix
-            .replace(/^\/+/, "/"); // Ensure single leading slash
+            .replace(/^\.\/public\/?/, "/") // Remove ./public/ and ensure leading slash
+            .replace(/^public\/?/, "/"); // Also handle public/ without leading dot
 
           arrayOfFiles.push(webPath.startsWith("/") ? webPath : "/" + webPath);
         }

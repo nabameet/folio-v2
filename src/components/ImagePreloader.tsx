@@ -61,6 +61,7 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
   }, [isLoading, showContent]);
 
   if (isLoading || !showContent) {
+    // console.log(loadedImages); // for debug. love u console log
     return (
       <LoadingScreen
         progress={loadingProgress}
