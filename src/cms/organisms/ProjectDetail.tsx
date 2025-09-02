@@ -34,7 +34,9 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
             <h1 className="text-7xl lg:text-9xl lg:leading-23 lg:mb-0 leading-12 mb-0">
               {project.metadata.title}
             </h1>
-            <span className="text-sm lg:text-lg">[ {project.metadata.timeline} ]</span>
+            <span className="text-sm lg:text-lg">
+              [ {project.metadata.timeline} ]
+            </span>
           </div>
         )}
         {renderMeta ? (
@@ -45,12 +47,15 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
             {project.metadata.tags.split(",").map((tag, key) => (
               <span
                 key={key}
-                className="pl-12 lg:pl-20 lg:pr-8 pr-4 -mr-2 lg:-mr-4 text-xl lg:text-3xl border rounded-[100%]"
+                className="pl-12 lg:pl-20 lg:pr-8 pr-4 -mr-2 lg:-mr-4 text-xl lg:text-3xl border border-1.5 rounded-[100%]"
               >
                 {tag.trim()}
               </span>
             ))}
-            <p>for: &nbsp;&nbsp;<span className="italic">{project.metadata.client}</span></p>
+            <p>
+              for: &nbsp;&nbsp;
+              <span className="italic">{project.metadata.client}</span>
+            </p>
             <p>{project.metadata.summary}</p>
           </div>
         )}
