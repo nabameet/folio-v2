@@ -58,12 +58,12 @@ export default function LoadingScreen({
     >
       <div className="flex h-full w-full flex-col justify-end">
         <div>
-          <div className="p-7 md:p-10">
+          <div className="flex flex-col gap-4 p-7 md:p-10">
             <AnimatedLogotype />
-            <br />
-            <p>{roundedProgress}%</p>
-
-            <p>wait up, we booting...</p>
+            <div>
+              <p>{roundedProgress}%</p>
+              <p>wait up, we booting...</p>
+            </div>
           </div>
         </div>
 
