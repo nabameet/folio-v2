@@ -60,6 +60,7 @@ export default function LoadingScreen({
         <div>
           <div className="p-7 md:p-10">
             <AnimatedLogotype />
+            <br />
             <p>{roundedProgress}%</p>
 
             <p>wait up, we booting...</p>

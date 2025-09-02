@@ -8,7 +8,7 @@ export default function ProjectSnapshot({
   currentImage: { src: string; alt: string; tags: string };
 }) {
   return (
-    <div className="invisible fixed right-0 z-50 flex h-full w-auto flex-col items-end justify-center px-8 py-18 sm:visible md:px-12 md:py-36 xl:max-w-1/2">
+    <div className="fixed right-0 z-50 flex h-full w-auto flex-col items-end justify-center px-8 py-18 md:px-12 md:py-36 xl:max-w-1/2">
       <Image
         className={`w-full bg-[#e3dbd1] object-cover dark:bg-[#2c2e33] ${
           showImage ? "visible" : "invisible"

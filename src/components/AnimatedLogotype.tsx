@@ -1,6 +1,10 @@
 export default function AnimatedLogotype() {
   return (
-    <svg className="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 190">
+    <svg
+      className="w-full"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 190"
+    >
       <path
         id="logotype"
         className="stroke-foreground fill-transparent stroke-2 md:scale-75 xl:scale-50"
