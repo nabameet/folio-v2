@@ -7,6 +7,10 @@ export default function ProjectSnapshot({
   showImage: boolean;
   currentImage: { src: string; alt: string; tags: string };
 }) {
+  const getBlurDataURL = (src: string) => {
+    return `/_next/image?url=${encodeURIComponent(src)}&w=16&q=1`;
+  };
+
   return (
     <div className="flex flex-col items-end fixed right-0 py-18 px-8 md:py-36 md:px-12 h-full w-auto z-50">
       <Image
@@ -17,6 +21,10 @@ export default function ProjectSnapshot({
         alt={currentImage.alt}
         width={1400}
         height={1080}
+        loading="eager"
+        priority
+        placeholder="blur"
+        blurDataURL={getBlurDataURL(currentImage.src)}
       />
       <div>
         {currentImage.tags.split(",").map((tag, key) => (
