@@ -11,7 +11,6 @@ interface ImagePreloaderProps {
 }
 
 export default function ImagePreloader({ children }: ImagePreloaderProps) {
-  const [showContent, setShowContent] = useState(false);
   const [startTime] = useState(() => Date.now());
   const initializationRef = useRef(false);
 
@@ -24,7 +23,6 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
   } = useBulkImagePreloader({
     images: ALL_IMAGES,
     onProgress: (progress) => {
-      // Only log every 10% to reduce noise
       if (progress % 10 < 1) {
         console.log(`Loading progress: ${Math.round(progress)}%`);
       }
@@ -35,42 +33,31 @@ export default function ImagePreloader({ children }: ImagePreloaderProps) {
     },
   });
 
-  // Initialize preloading only once
   useEffect(() => {
     if (initializationRef.current) return;
-
     initializationRef.current = true;
 
-    // Add small delay to ensure component is mounted
     const timer = setTimeout(() => {
       startPreloading();
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [startPreloading]); // Empty dependency array is intentional
+  }, [startPreloading]);
 
-  // Handle content reveal
-  useEffect(() => {
-    if (!isLoading && !showContent) {
-      const timer = setTimeout(() => {
-        setShowContent(true);
-      });
-
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, showContent]);
-
-  if (isLoading || !showContent) {
-    // console.log(loadedImages); // for debug. love u console log
-    return (
-      <LoadingScreen
-        progress={loadingProgress}
-        isLoading={isLoading}
-        totalImages={totalImages}
-        loadedImages={loadedImages.length}
-      />
-    );
-  }
-
-  return <div>{children}</div>;
+  // Always render content, show loading screen as overlay
+  return (
+    <>
+      {isLoading && (
+        <LoadingScreen
+          progress={loadingProgress}
+          isLoading={isLoading}
+          totalImages={totalImages}
+          loadedImages={loadedImages.length}
+        />
+      )}
+      <div style={{ opacity: isLoading ? 0 : 1, transition: "opacity 0.3s" }}>
+        {children}
+      </div>
+    </>
+  );
 }

@@ -3,6 +3,7 @@ import { EB_Garamond } from "next/font/google";
 import { ReactLenis } from "@/utils/lenis";
 import "./globals.css";
 import { LayoutClient } from "@/components/LayoutClient";
+import ImagePreloader from "@/components/ImagePreloader";
 
 const title = "nabameet - multidisciplinary designer / developer";
 const description =
@@ -94,7 +95,9 @@ export default function RootLayout({
         <body
           className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
         >
-          <LayoutClient>{children}</LayoutClient>
+          <ImagePreloader>
+            <LayoutClient>{children}</LayoutClient>
+          </ImagePreloader>
         </body>
       </ReactLenis>
     </html>
