@@ -30,7 +30,7 @@ export default function InfoContact({
             target="_blank"
             rel="noopener noreferrer"
             className="italic underline"
-            href="https://drive.google.com/file/d/1BtbwcbkvYfwoxPPAFxxUBP9ejmmKYGm6/view?usp=sharing"
+            href="https://drive.google.com/file/d/1xl1kf3Yy8zuH9WA-34UFecvcxLFxu9an/view?usp=drive_link"
           >
             resume
           </Link>
