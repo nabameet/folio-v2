@@ -4,9 +4,9 @@ import { ReactLenis } from "@/utils/lenis";
 import "./globals.css";
 import { LayoutClient } from "@/components/LayoutClient";
 
-const title = "nabameet - multi-disciplinary designer and creative developer";
+const title = "nabameet - multidisciplinary designer / developer";
 const description =
-  "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
+  "blending eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 const author = "nabameet";
 const url = "https://nabameet.com";
 
@@ -43,18 +43,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: url,
-    siteName: title,
     title: title,
     description: description,
     images: [
       {
         url: "/og-image.jpg",
-        secureUrl: "https://nabameet.com/og-image.jpg", // Apparently reqd since site uses HTTPS
-        width: 1206,
-        height: 636,
-        alt: title,
       },
     ],
   },
