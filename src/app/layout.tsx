@@ -58,8 +58,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        width: 1206,
+        height: 636,
         alt: "Your Name Portfolio",
       },
     ],
