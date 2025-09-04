@@ -58,9 +58,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.jpg",
+        secureUrl: "https://nabameet.com/og-image.jpg", // Apparently reqd since site uses HTTPS
         width: 1206,
         height: 636,
-        alt: "Your Name Portfolio",
+        alt: title,
       },
     ],
   },
