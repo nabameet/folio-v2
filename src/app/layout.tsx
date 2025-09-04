@@ -1,15 +1,8 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
-import { LayoutClient } from "@/components/LayoutClient";
-import "./globals.css";
 import { ReactLenis } from "@/utils/lenis";
-
-const ebGaramond = EB_Garamond({
-  variable: "--font-eb-garamond",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-});
+import "./globals.css";
+import { LayoutClient } from "@/components/LayoutClient";
 
 const title = "nabameet - multi-disciplinary designer and creative developer";
 const description =
@@ -88,6 +81,13 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
 };
+
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
 
 export default function RootLayout({
   children,
