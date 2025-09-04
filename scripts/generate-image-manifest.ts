@@ -78,6 +78,10 @@ export const IMAGE_CATEGORIES = {
 
 export const CRITICAL_IMAGES = [
   ...IMAGE_CATEGORIES.hero,
+  "/project-images/cynics-calcutta/title.webp",
+  "/project-images/faekbank/6.png",
+  "/project-images/fears-to-fathom/title.png",
+  "/project-images/young-founder-summit/hero.png",
   // Add other critical images here
 ].filter(Boolean) as string[];
 
