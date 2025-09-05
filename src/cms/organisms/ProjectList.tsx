@@ -26,7 +26,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   );
 
   return (
-    <div className={clsx("z-[99] flex flex-col gap-4 lowercase", className)}>
+    <div className={clsx("z-40 flex flex-col gap-4 lowercase", className)}>
       <h1 className="">selected works:</h1>
       <ul className="">
         {sortedProjects.map((project, index) =>

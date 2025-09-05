@@ -23,7 +23,7 @@ export default function ProjectSnapshot({
   console.log(transitionKey);
 
   return (
-    <div className="absolute right-0 z-50 flex h-full flex-col items-end justify-end px-8 py-20 md:justify-center md:px-12 md:py-40">
+    <div className="absolute right-0 z-10 flex h-full flex-col items-end justify-end px-8 py-20 md:justify-center md:px-12 md:py-40">
       <Image
         className={`${transitionKey} bg-[#e3dbd1] dark:bg-[#2c2e33] ${showImage && currentImage?.src ? "visible" : "invisible"}`}
         data-view-transition={transitionKey}
