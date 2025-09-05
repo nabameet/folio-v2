@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
@@ -14,12 +14,11 @@ export const WorkPlayToggle = () => {
     <div className="flex gap-2">
       <Link
         href="/"
-        className={clsx(
-          "relative inline-block",
+        className={`relative inline-block ${
           isWork
             ? "italic" // add for strikethrough: after:content-[''] after:absolute after:left-0 after:w-full after:h-0.25 after:bg-foreground after:pointer-events-none after:top-[60%]
-            : "",
-        )}
+            : ""
+        } `}
       >
         work
       </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import { MDXContent } from "../types";
 import { cmsConfig } from "../config/content";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import clsx from "clsx";
 
 export type ProjectListProps = {

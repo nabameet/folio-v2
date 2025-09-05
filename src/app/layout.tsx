@@ -4,6 +4,7 @@ import { ReactLenis } from "@/utils/lenis";
 import "./globals.css";
 import { LayoutClient } from "@/components/LayoutClient";
 import ImagePreloader from "@/components/ImagePreloader";
+import { ViewTransitions } from "next-view-transitions";
 
 const title = "nabameet - multidisciplinary designer / developer";
 const description =
@@ -90,16 +91,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ReactLenis root>
-        <body
-          className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
-        >
-          <ImagePreloader>
-            <LayoutClient>{children}</LayoutClient>
-          </ImagePreloader>
-        </body>
-      </ReactLenis>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <ReactLenis root>
+          <body
+            className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
+          >
+            <ImagePreloader>
+              <LayoutClient>{children}</LayoutClient>
+            </ImagePreloader>
+          </body>
+        </ReactLenis>
+      </html>
+    </ViewTransitions>
   );
 }

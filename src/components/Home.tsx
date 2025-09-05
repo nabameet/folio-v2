@@ -35,11 +35,20 @@ export default function Home({ projects }: { projects: MDXContent[] }) {
   return (
     <>
       <main className="relative flex h-screen w-full items-center justify-center">
-        {/* stroke-background dark:stroke-foreground text-background mix-blend-difference dark:text-foreground */}
         <Logo className="h-full w-full max-w-screen-2xl" />
-        {currentImage && (
-          <ProjectSnapshot showImage={showImage} currentImage={currentImage} />
-        )}
+
+        {/* Always render ProjectSnapshot - no conditional */}
+        <ProjectSnapshot
+          showImage={showImage}
+          currentImage={
+            currentImage || {
+              src: "",
+              alt: "",
+              tags: "",
+            }
+          }
+        />
+
         <ProjectList
           className="absolute top-0 left-0 px-8 pt-40 md:px-12"
           projects={projects}

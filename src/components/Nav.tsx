@@ -1,6 +1,8 @@
+"use client";
+
 import { NavItem } from "@/types/nav";
 import clsx from "clsx";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import React from "react";
 
@@ -19,7 +21,7 @@ export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => {
     previousPath = "/";
   }
   return (
-    <nav className="fixed z-50 flex w-full justify-between gap-12 p-8 md:p-12">
+    <nav className="fixed z-[999] flex w-full justify-between gap-12 p-8 md:p-12">
       {" "}
       {/* text-background dark:text-foreground mix-blend-difference */}
       <Link
