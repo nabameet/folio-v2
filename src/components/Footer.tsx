@@ -15,7 +15,7 @@ export default function Footer() {
     >
       <span className="flex items-center gap-2">
         <svg
-          className="h-4"
+          className="h-3 sm:h-4"
           viewBox="0 0 684 91"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -23,7 +23,7 @@ export default function Footer() {
         </svg>
         <span className="flex items-center gap-1">
           <svg
-            className="size-3"
+            className="size-2.5 sm:size-3"
             width="800"
             height="800"
             viewBox="0 0 800 800"
