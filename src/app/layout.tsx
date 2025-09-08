@@ -6,7 +6,7 @@ import { LayoutClient } from "@/components/LayoutClient";
 import ImagePreloader from "@/components/ImagePreloader";
 import { ViewTransitions } from "next-view-transitions";
 
-const title = "nabameet - multidisciplinary designer / developer";
+const title = "nabameet - visual designer / developer";
 const description =
   "blending eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 const author = "nabameet";

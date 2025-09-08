@@ -22,7 +22,7 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   ];
 
   const aboutText =
-    "i’m nabameet, a multidisciplinary designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
+    "i’m nabameet, a visual designer. i blend eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
 
   const contactPrechorusText = "rather break the mold than play it safe?";
   const contactTitleText = "i'm in. ";
