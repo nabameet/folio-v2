@@ -21,7 +21,7 @@ export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => {
     previousPath = "/";
   }
   return (
-    <nav className="fixed z-50 flex w-full justify-between gap-12 p-8 md:p-12">
+    <nav className="fixed z-40 flex w-full justify-between gap-12 p-8 md:p-12">
       {" "}
       {/* text-background dark:text-foreground mix-blend-difference */}
       <Link

@@ -3,6 +3,7 @@ import React from "react";
 import { MDXContentRenderer } from "./MDXContentRenderer";
 import { MDXContent } from "../types";
 import clsx from "clsx";
+import { ProjectImage } from "../atoms/ProjectImage";
 
 export type ProjectDetailProps = {
   project: MDXContent;
@@ -59,7 +60,14 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({
             <p>{project.metadata.summary}</p>
           </div>
         )}
-        <MDXContentRenderer source={project.content} />
+        <MDXContentRenderer
+          source={project.content}
+          components={{
+            ProjectImage: (props) => (
+              <ProjectImage {...props} slug={project.slug} />
+            ),
+          }}
+        />
       </article>
     </section>
   );

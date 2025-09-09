@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* globals.css */
+@view-transition {
+  navigation: auto;
+}
+
 :root {
   --background: #f4f1ec;
   --foreground: #0b0e13;

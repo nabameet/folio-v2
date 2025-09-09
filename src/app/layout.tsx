@@ -95,7 +95,7 @@ export default function RootLayout({
       <html lang="en">
         <ReactLenis root>
           <body
-            className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
+            className={`${ebGaramond.className} overflow-x-hidden overflow-y-hidden leading-tight tracking-tighter antialiased`}
           >
             <ImagePreloader>
               <LayoutClient>{children}</LayoutClient>
