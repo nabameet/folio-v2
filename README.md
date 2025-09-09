@@ -12,7 +12,7 @@ TODO: Project Rehaul (One Bento, as less words as possible, while showing the st
 
 ---
 
-### TODAY: (DAY 2 - over, DAY 3 upcoming - 27/8/2025) its 6/9/2025 today
+### DAY 2 - over, DAY 3 upcoming - 27/8/2025 (its 6/9/2025 already)
 
 DONE: Write year, scope, client in each project
 DONE: Make the footer
@@ -20,7 +20,7 @@ DONE: Change info copy (Figure out, optimize)
 DONE: Update Project copy (Remove vim line)
 DONE: Add hmu in footer (CTA)
 
-DONE: CHECKPOINT: LESSGO U CAN APPLY TO JOBS NOW!!!!!
+DONE: CHECKPOINT
 
 DONE: Additional project info (tags) on homepage
 DONE: Good scroll (Lenis)
