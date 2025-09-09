@@ -15,14 +15,13 @@ export default function Footer() {
 
   return (
     <motion.div
-      layoutId="footer"
+      // layoutId="footer"
       className={`flex ${isWorkRoute ? "" : "absolute bottom-0"} [&_svg]:fill-foreground z-50 w-full items-center justify-between gap-12 p-8 md:p-12`}
     >
       <span className="flex items-center gap-2">
         <motion.div
-          key="logotype-footer"
-          layoutId="logotype-handwritten"
-          // className="h-3 sm:h-4"
+        // layoutId="logotype-handwritten"
+        // className="h-3 sm:h-4"
         >
           {/* {!isLoading && ( */}
           <svg
