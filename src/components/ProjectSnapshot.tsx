@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getProjectImageTransitionName } from "../cms/utils/viewTransitions";
 
 export default function ProjectSnapshot({
   showImage,
@@ -14,7 +15,7 @@ export default function ProjectSnapshot({
   const imageAlt = currentImage?.alt || "";
   const imageTags = currentImage?.tags || "";
 
-  const transitionKey = `project-image-${imageSrc.replace(/\//g, "")}`;
+  const transitionKey = getProjectImageTransitionName(imageSrc);
 
   return (
     <div

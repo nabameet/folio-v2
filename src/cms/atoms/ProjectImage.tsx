@@ -1,5 +1,6 @@
 import Image, { ImageProps } from "next/image";
 import React from "react";
+import { getProjectImageTransitionName } from "../utils/viewTransitions";
 
 export type ProjectImageProps = ImageProps & {
   slug?: string; // pass slug down from ProjectDetail
@@ -12,7 +13,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
   ...props
 }) => {
   // Use slug-based key if available
-  const transitionKey = `project-image-${(""+src).replace(/\//g, "")}`;
+  const transitionKey = getProjectImageTransitionName(src);
 
   return (
     <div
