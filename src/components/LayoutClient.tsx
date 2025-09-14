@@ -10,11 +10,11 @@ import { WorkPlayToggle } from "@/components/WorkPlayToggle";
 import { NavItem } from "@/types/nav";
 import InfoAbout from "@/components/info/InfoAbout";
 import InfoContact from "@/components/info/InfoContact";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { useLoadingStore } from "@/store/loadingStore";
-import LoadingScreen from "./LoadingScreen";
+// import LoadingScreen from "./LoadingScreen";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -32,9 +32,9 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
 
-  const { isLoading, loadingProgress } = useLoadingStore();
+  const { isLoading } = useLoadingStore();
 
-  const currentPath = usePathname();
+  // const currentPath = usePathname();
 
   return (
     <>

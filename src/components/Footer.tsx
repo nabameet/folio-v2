@@ -1,6 +1,6 @@
 "use client";
 
-import { useLoadingStore } from "@/store/loadingStore";
+// import { useLoadingStore } from "@/store/loadingStore";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,7 +11,7 @@ export default function Footer() {
 
   const email = "hi@nabameet.com";
 
-  const { isLoading } = useLoadingStore();
+  // const { isLoading } = useLoadingStore();
 
   return (
     <motion.div
