@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import { useState, useCallback } from "react";
 
 import { Cursor } from "@/components/cursor/Cursor";
@@ -12,6 +13,8 @@ import InfoContact from "@/components/info/InfoContact";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLoadingStore } from "@/store/loadingStore";
+import LoadingScreen from "./LoadingScreen";
 
 export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -28,6 +31,8 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
   const contactTitleText = "i'm in. ";
   const email = "hi@nabameet.com";
   const xUsername = "nabameet";
+
+  const { isLoading, loadingProgress } = useLoadingStore();
 
   const currentPath = usePathname();
 
@@ -72,8 +77,18 @@ export const LayoutClient = ({ children }: { children: React.ReactNode }) => {
           <p></p>
         </InfoContact>
       </InfoDrawer>
-      <div className="">{children}</div>
-      {currentPath === "/" || currentPath === "/play" ? "" : <Footer />}
+      <AnimatePresence mode="wait">
+        {!isLoading && (
+          <motion.div
+            key="main-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <div className="">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

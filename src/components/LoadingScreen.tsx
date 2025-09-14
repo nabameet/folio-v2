@@ -2,23 +2,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLoadingStore } from "@/store/loadingStore";
 import AnimatedLogotype from "./AnimatedLogotype";
 import { motion } from "framer-motion";
 
-interface LoadingScreenProps {
-  progress: number;
-  isLoading: boolean;
-  totalImages: number;
-  loadedImages: number;
-  onComplete?: () => void;
-}
-
-export default function LoadingScreen({
-  progress,
-  isLoading,
-  onComplete,
-}: LoadingScreenProps) {
+export default function LoadingScreen() {
   const [displayProgress, setDisplayProgress] = useState(0);
+  const { loadingProgress: progress } = useLoadingStore();
+  const [isLogotypeAnimationDone, setIsLogotypeAnimationDone] = useState(false);
 
   // Smooth progress animation
   useEffect(() => {
@@ -33,31 +24,38 @@ export default function LoadingScreen({
     return () => clearInterval(interval);
   }, [progress]);
 
-  // Call onComplete when loading finishes (optional)
   useEffect(() => {
-    if (!isLoading && progress >= 100) {
-      onComplete?.();
-    }
-  }, [isLoading, progress, onComplete]);
+    const timer = setTimeout(() => {
+      setIsLogotypeAnimationDone(true);
+    }, 3200); // Matches the animation duration in AnimatedLogotype
+    return () => clearTimeout(timer);
+  }, []);
 
   const roundedProgress = Math.round(displayProgress);
 
   return (
     <motion.div
       className="pointer-events-none fixed inset-0 z-50"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 0.4, delay: 0.5 }} // Delay exit to allow logotype to animate
     >
       <div className="flex h-full w-full flex-col justify-end">
         <div>
           <div className="flex flex-col gap-4 p-7 md:p-10">
             <AnimatedLogotype />
-            <div>
-              <p>{roundedProgress}%</p>
-              <p>wait up, we booting...</p>
-            </div>
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={{
+                opacity: isLogotypeAnimationDone ? 0 : 1,
+              }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <div>
+                <p>{roundedProgress}%</p>
+                <p>wait up, we booting...</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>

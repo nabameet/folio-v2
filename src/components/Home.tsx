@@ -40,8 +40,7 @@ export default function Home({ projects }: { projects: MDXContent[] }) {
         onProjectHover={handleProjectHover}
         onProjectHoverEnd={handleProjectHoverEnd} // call on hover leave
       />
-
-      <Footer />
+      <Footer/>
     </main>
   );
 }
