@@ -39,6 +39,13 @@ body {
     var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
+/* In your globals.css */
+@media (hover: none) and (pointer: coarse) {
+  .hide-on-touch {
+    display: none !important;
+  }
+}
+
 .glass {
   background: rgba(255, 255, 255, 0.08);
   border: 2px solid transparent;
