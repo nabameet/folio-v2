@@ -29,7 +29,7 @@ import { LOGOMARK_CONSTANTS, LOGOMARK_PATHS } from "@/constants/logomark";
  * <Logomark className="h-64 text-blue-500" style={{ opacity: 0.8 }} />
  * ```
  */
-export function Logomark(props: SVGProps<SVGSVGElement>) {
+export const Logomark = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns={LOGOMARK_CONSTANTS.XMLNS}
@@ -52,4 +52,4 @@ export function Logomark(props: SVGProps<SVGSVGElement>) {
       </g>
     </svg>
   );
-}
+};

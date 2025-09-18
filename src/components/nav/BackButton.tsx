@@ -3,7 +3,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function BackButton({ fallbackUrl = "/" }) {
+export const BackButton = ({ fallbackUrl = "/" }) => {
   const router = useRouter();
   const [canGoBack, setCanGoBack] = useState(false);
 
@@ -55,4 +55,4 @@ export default function BackButton({ fallbackUrl = "/" }) {
       back
     </button>
   );
-}
+};

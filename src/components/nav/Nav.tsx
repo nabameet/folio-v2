@@ -1,34 +1,32 @@
 "use client";
 
-import { NavItem } from "@/types/nav";
 import clsx from "clsx";
+import { NavItem } from "@/types/nav";
 import { Link } from "next-view-transitions";
-// import React from "react";
-// import { usePathname, useRouter } from "next/navigation";
-import BackButton from "./BackButton";
+import { BackButton } from "./BackButton";
+import { WorkPlayToggle } from "./WorkPlayToggle";
 
 interface NavProps {
+  /** Navigation items to render */
   items?: NavItem[];
+  /** Additional navigation content */
   children?: React.ReactNode;
+  /** Whether info drawer is open */
   isInfoOpen: boolean;
 }
 
-export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => {
-  {
-    /* 
-      const router = useRouter();
-      const currentPath = usePathname();
-      const lastSlashIndex = currentPath.lastIndexOf("/");
-      let previousPath =
-        lastSlashIndex > 0 ? currentPath.slice(0, lastSlashIndex) : "/"; // If previousPath is "/work", go to "/" instead
-      if (previousPath === "/work") {
-        previousPath = "/";
-      }
-    */
-  }
+/**
+ * Main navigation component with responsive layout
+ *
+ * Renders fixed navigation bar with:
+ * - Back button for navigation
+ * - Dynamic navigation items (links or buttons)
+ * - Additional children content (like WorkPlayToggle)
+ * - Visual feedback for active states
+ */
+export const Nav = ({ items = [], isInfoOpen }: NavProps) => {
   return (
     <nav className="fixed z-50 flex w-full justify-between gap-12 p-8 md:p-12">
-      {/* text-background dark:text-foreground mix-blend-difference */}
       <BackButton />
       <ul className="flex gap-12">
         {items.map((item, idx) =>
@@ -51,7 +49,7 @@ export const Nav = ({ items = [], children, isInfoOpen }: NavProps) => {
             </button>
           ),
         )}
-        {children}
+        <WorkPlayToggle />
       </ul>
     </nav>
   );

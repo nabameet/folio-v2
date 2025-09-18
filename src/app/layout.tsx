@@ -1,66 +1,46 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
-import { ReactLenis } from "@/utils/lenis";
-import "./globals.css";
-import { LayoutClient } from "@/components/LayoutClient";
-import ImagePreloader from "@/components/ImagePreloader";
 import { ViewTransitions } from "next-view-transitions";
+import { ReactLenis } from "@/utils/lenis";
 
-const title = "nabameet - visual designer / developer";
-const description =
-  "blending eye candy with unconventional storytelling, experimentation (and sometimes a bit of code) to create identities that feel alive and built to thrive in the real world.";
-const author = "nabameet";
-const url = "https://nabameet.com";
+import "./globals.css";
+
+import { SITE_METADATA, SEO_KEYWORDS } from "@/constants/metadata";
+import { SITE_CONTENT } from "@/constants/content";
+
+import { LayoutClient } from "@/components/LayoutClient";
+import { Loader } from "@/components/loader";
+
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
-
-  keywords: [
-    "brand designer",
-    "graphic designer",
-    "visual designer",
-    "designer",
-    "creative developer",
-    "portfolio",
-    "identity design",
-    "branding",
-    "react developer",
-    "nextjs developer",
-    "javascript",
-    "typescript",
-    "UI UX designer",
-    "startup branding",
-    "freelance designer",
-    "web developer portfolio",
-  ],
-  authors: [{ name: author, url: url }],
-  creator: author,
-  publisher: author,
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL(url),
+  title: SITE_METADATA.TITLE,
+  description: SITE_METADATA.DESCRIPTION,
+  keywords: SEO_KEYWORDS,
+  authors: [{ name: SITE_METADATA.AUTHOR, url: SITE_METADATA.URL }],
+  creator: SITE_METADATA.AUTHOR,
+  publisher: SITE_METADATA.AUTHOR,
+  formatDetection: { email: false, address: false, telephone: false },
+  metadataBase: new URL(SITE_METADATA.URL),
   openGraph: {
     type: "website",
-    url: url,
-    title: title,
-    description: description,
-    images: [
-      {
-        url: "/og-image.jpg",
-      },
-    ],
+    url: SITE_METADATA.URL,
+    title: SITE_METADATA.TITLE,
+    description: SITE_METADATA.DESCRIPTION,
+    images: [{ url: SITE_METADATA.OG_IMAGE }],
   },
   twitter: {
     card: "summary_large_image",
-    title: title,
-    description: description,
-    site: "@" + author,
-    creator: "@" + author,
-    images: ["/og-image.jpg"],
+    title: SITE_METADATA.TITLE,
+    description: SITE_METADATA.DESCRIPTION,
+    site: "@" + SITE_METADATA.AUTHOR,
+    creator: "@" + SITE_METADATA.AUTHOR,
+    images: [SITE_METADATA.OG_IMAGE],
   },
   robots: {
     index: true,
@@ -73,23 +53,27 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.svg",
-  },
+  icons: { icon: SITE_METADATA.FAVICON },
 };
 
-const ebGaramond = EB_Garamond({
-  variable: "--font-eb-garamond",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-});
-
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+/**
+ * Root layout with all data passed to components
+ */
+export default function RootLayout({ children }: RootLayoutProps) {
+  // All data defined at page level
+  const layoutData = {
+    aboutText: SITE_CONTENT.ABOUT_TEXT,
+    contactPrechorus: SITE_CONTENT.CONTACT_PRECHORUS,
+    contactTitle: SITE_CONTENT.CONTACT_TITLE,
+    email: SITE_CONTENT.EMAIL,
+    xUsername: SITE_CONTENT.X_USERNAME,
+    resumeUrl: SITE_CONTENT.RESUME_URL,
+  };
+
   return (
     <ViewTransitions>
       <html lang="en">
@@ -97,9 +81,9 @@ export default function RootLayout({
           <body
             className={`${ebGaramond.className} leading-tight tracking-tighter antialiased`}
           >
-            <ImagePreloader>
-              <LayoutClient>{children}</LayoutClient>
-            </ImagePreloader>
+            <Loader>
+              <LayoutClient {...layoutData}>{children}</LayoutClient>
+            </Loader>
           </body>
         </ReactLenis>
       </html>

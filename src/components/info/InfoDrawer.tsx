@@ -1,12 +1,21 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
+import { ANIMATION_CONSTANTS } from "@/constants/content";
 
 interface InfoDrawerProps {
+  /** Whether drawer is open */
   isOpen: boolean;
+  /** Drawer content */
   children?: React.ReactNode;
 }
 
+/**
+ * Animated info drawer component
+ *
+ * Provides smooth expand/collapse animations for info content
+ * Uses custom easing and timing for polished feel
+ */
 export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
   <AnimatePresence initial={false}>
     {isOpen && (
@@ -16,7 +25,10 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: "auto", opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
-        transition={{ duration: 0.6, ease: [0.77, 0, 0.175, 1] }}
+        transition={{
+          duration: ANIMATION_CONSTANTS.DRAWER_DURATION,
+          ease: ANIMATION_CONSTANTS.DRAWER_EASING,
+        }}
         style={{
           overflow: "hidden",
           background: "transparent",
@@ -27,7 +39,7 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: ANIMATION_CONSTANTS.DRAWER_CONTENT_DURATION }}
         >
           {children}
         </motion.div>
