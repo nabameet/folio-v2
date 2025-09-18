@@ -1,0 +1,42 @@
+import { getProjectImageTransitionName } from "@/cms/utils/viewTransitions";
+import { LAYOUT_CONSTANTS } from "@/constants/layout";
+import { ProjectImageData } from "@/types/project";
+import { ProjectSnapshotImage } from "./ProjectSnapshotImage";
+import { ProjectSnapshotTags } from "./ProjectSnapshotTags";
+
+interface ProjectSnapshotProps {
+  /** Whether to show the image preview */
+  showImage: boolean;
+  /** Current project image data */
+  currentImage: ProjectImageData;
+}
+
+/**
+ * Project snapshot preview component
+ *
+ * Shows project image and tags on hover with smooth transitions
+ * Positioned on the right side with view transitions support
+ */
+export default function ProjectSnapshot({
+  showImage,
+  currentImage,
+}: ProjectSnapshotProps) {
+  const imageSrc = currentImage?.src || LAYOUT_CONSTANTS.IMAGE_PLACEHOLDER;
+  const imageAlt = currentImage?.alt || "";
+  const imageTags = currentImage?.tags || "";
+
+  const transitionKey = getProjectImageTransitionName(imageSrc);
+
+  return (
+    <div
+      className={`absolute right-0 z-10 flex h-full flex-col items-end justify-end px-8 py-20 transition-opacity duration-500 ease-in-out md:max-w-1/2 md:justify-center md:px-12 md:py-40 xl:max-w-2/5 ${
+        showImage && imageSrc ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+      style={{ viewTransitionName: transitionKey }}
+    >
+      <ProjectSnapshotImage src={imageSrc} alt={imageAlt} />
+
+      <ProjectSnapshotTags tags={imageTags} />
+    </div>
+  );
+}

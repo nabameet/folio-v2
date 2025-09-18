@@ -1,28 +1,37 @@
 "use client";
 
-import Logo from "@/components/logo/Logo";
+import { Project } from "@/types/project";
+import { useProjectHover } from "@/hooks/useProjectHover";
+
+import { Logomark } from "@/components/logo";
+import { Footer } from "@/components/footer";
+import { ProjectSnapshot } from "@/components/project-snapshot";
 import { ProjectList } from "@/cms/organisms/ProjectList";
-import Footer from "@/components/Footer";
-import { useState } from "react";
-import { MDXContent } from "@/cms/types";
-import ProjectSnapshot from "./ProjectSnapshot";
 
-export default function Home({ projects }: { projects: MDXContent[] }) {
-  const [currentProject, setCurrentProject] = useState<MDXContent | null>(null);
-  const [showImage, setShowImage] = useState(false);
+interface HomeProps {
+  /** Array of projects from CMS */
+  projects: Project[];
+}
 
-  const handleProjectHover = (project: MDXContent) => {
-    setCurrentProject(project);
-    setShowImage(true);
-  };
-
-  const handleProjectHoverEnd = () => {
-    setShowImage(false); // will trigger fade out
-  };
+/**
+ * Home page component with project showcase
+ *
+ * Displays logo, project list, and interactive project preview on hover
+ * Uses view transitions for smooth navigation between project pages
+ *
+ * @param projects - Array of project data from CMS
+ */
+export default function Home({ projects }: HomeProps) {
+  const {
+    currentProject,
+    showImage,
+    handleProjectHover,
+    handleProjectHoverEnd,
+  } = useProjectHover();
 
   return (
     <main className="relative flex h-screen w-full items-center justify-center">
-      <Logo className="h-full w-full max-w-screen-2xl" />
+      <Logomark className="h-full w-full max-w-screen-2xl" />
 
       <ProjectSnapshot
         showImage={showImage}
@@ -38,9 +47,10 @@ export default function Home({ projects }: { projects: MDXContent[] }) {
         className="absolute top-0 left-0 px-8 pt-40 md:px-12"
         projects={projects}
         onProjectHover={handleProjectHover}
-        onProjectHoverEnd={handleProjectHoverEnd} // call on hover leave
+        onProjectHoverEnd={handleProjectHoverEnd}
       />
-      <Footer/>
+
+      <Footer />
     </main>
   );
 }

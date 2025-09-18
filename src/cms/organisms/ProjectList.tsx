@@ -1,17 +1,24 @@
-import React from "react";
-import { MDXContent } from "../types";
-import { cmsConfig } from "../config/content";
+import React, { useMemo } from "react";
 import { Link } from "next-view-transitions";
 import clsx from "clsx";
+import { cmsConfig } from "@/cms/config/content";
+import { Project, ProjectHoverHandlers } from "@/types/project";
 
-export type ProjectListProps = {
-  projects: MDXContent[];
-  renderItem?: (project: MDXContent) => React.ReactNode;
+export interface ProjectListProps extends ProjectHoverHandlers {
+  /** Array of projects to display */
+  projects: Project[];
+  /** Optional custom render function for project items */
+  renderItem?: (project: Project) => React.ReactNode;
+  /** Additional CSS classes */
   className?: string;
-  onProjectHover?: (project: MDXContent) => void;
-  onProjectHoverEnd?: () => void;
-};
+}
 
+/**
+ * Project list component with hover functionality
+ *
+ * Displays sorted list of projects with hover interactions
+ * Projects are sorted by publication date (newest first)
+ */
 export const ProjectList: React.FC<ProjectListProps> = ({
   projects,
   renderItem,
@@ -19,10 +26,15 @@ export const ProjectList: React.FC<ProjectListProps> = ({
   onProjectHover,
   onProjectHoverEnd,
 }) => {
-  const sortedProjects = projects.sort(
-    (a, b) =>
-      new Date(b.metadata.publishedAt).getTime() -
-      new Date(a.metadata.publishedAt).getTime(),
+  /** Memoized sorted projects to prevent unnecessary re-renders */
+  const sortedProjects = useMemo(
+    () =>
+      projects.sort(
+        (a, b) =>
+          new Date(b.metadata.publishedAt).getTime() -
+          new Date(a.metadata.publishedAt).getTime(),
+      ),
+    [projects],
   );
 
   return (
@@ -33,7 +45,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
           renderItem ? (
             renderItem(project)
           ) : (
-            <li key={index} className="flex gap-2">
+            <li key={project.slug} className="flex gap-2">
               <span className="rounded-[100%] border pr-2 pl-8 text-sm">
                 {index + 1}
               </span>

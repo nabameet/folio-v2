@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import Logo from "@/components/logo/Logo";
+import Logo from "@/components/logo/Logomark";
 
 export default function Play() {
   return (
