@@ -63,6 +63,7 @@ export const LayoutClient = ({
       <AnimatePresence mode="wait">
         {!isLoading && (
           <motion.div
+            className="h-dvh"
             key="main-content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
