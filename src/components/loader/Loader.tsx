@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { useEffect, useRef } from "react";
 import { useBulkImagePreloader } from "@/hooks/useBulkImagePreloader";
 import { ALL_IMAGES } from "@/lib/image-manifest";

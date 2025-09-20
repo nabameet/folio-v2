@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 import { NavItem } from "@/types/nav";
 import { ANIMATION_CONSTANTS } from "@/constants/content";

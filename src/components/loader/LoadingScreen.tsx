@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useLoadingStore } from "@/store/loadingStore";
 import { LOADING_CONSTANTS, LOADING_TEXT } from "@/constants/loading";
 

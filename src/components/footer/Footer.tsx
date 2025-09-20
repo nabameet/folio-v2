@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { LogoSection } from "./LogoSection";
 import { ContactLink } from "./ContactLink";
@@ -17,7 +17,7 @@ import { ContactLink } from "./ContactLink";
  * <Footer />
  * ```
  */
-export default function Footer() {
+export function Footer() {
   const currentPath = usePathname();
 
   /** Check if current route is a work detail page */
