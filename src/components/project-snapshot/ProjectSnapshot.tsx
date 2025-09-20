@@ -29,7 +29,7 @@ export default function ProjectSnapshot({
 
   return (
     <div
-      className={`pointer-events-none absolute right-0 z-10 flex h-full w-full flex-col items-end justify-end px-8 py-20 transition-opacity duration-500 ease-in-out md:max-w-1/2 md:justify-center md:px-12 md:py-40 2xl:max-w-2/5 ${
+      className={`pointer-events-none absolute right-0 z-10 flex h-full w-full max-w-2xl flex-col items-end justify-end px-8 py-20 transition-opacity duration-500 ease-in-out md:w-1/2 md:justify-center md:px-12 md:py-40 ${
         showImage && imageSrc ? "opacity-100" : "opacity-0"
       }`}
       style={{ viewTransitionName: transitionKey }}
