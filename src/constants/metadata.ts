@@ -1,7 +1,10 @@
 /** Site metadata constants */
 export const SITE_METADATA = {
   /** Main site title */
-  TITLE: "nabameet - visual designer / developer",
+  TITLE: {
+    TEMPLATE: "%s by nabameet - visual designer / developer",
+    DEFAULT: "nabameet - visual designer / developer",
+  },
 
   /** Site description */
   DESCRIPTION:

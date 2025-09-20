@@ -3,7 +3,8 @@ import { MDXContent } from "../types";
 import { cmsConfig } from "../config/content";
 
 export function getProjectStaticParams() {
-  return getAllContent().map((project) => ({ slug: project.slug }));
+  const projects = getAllContent();
+  return projects.map((project) => ({ slug: project.slug }));
 }
 
 export function getProjectBySlug(slug: string): MDXContent | undefined {

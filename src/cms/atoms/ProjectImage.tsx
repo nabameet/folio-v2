@@ -20,6 +20,7 @@ export const ProjectImage: React.FC<ProjectImageProps> = ({
       style={{ viewTransitionName: transitionKey }}
       className="h-auto w-full"
     >
+      <link rel="preload" as="image" href={src as string} />
       <Image
         src={src}
         alt={alt}

@@ -2,6 +2,8 @@
 
 ## High Priority
 
+- [x] Optimize MDX
+- [ ] Fix metadata being loaded after loader issue
 - [ ] Refactor project structure for clarity and maintainability
 - [ ] Redesign project overview (“One Bento”) with concise, narrative-driven visuals
 

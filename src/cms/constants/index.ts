@@ -1,3 +1,5 @@
+import { MDXMetadata } from "../types";
+
 /** MDX file processing constants */
 export const MDX_CONSTANTS = {
   /** File extension for MDX files */
@@ -11,6 +13,8 @@ export const MDX_CONSTANTS = {
 
   /** Default encoding for file operations */
   FILE_ENCODING: "utf-8" as const,
+
+  PARSE_CACHE: new Map<string, { metadata: MDXMetadata; content: string }>(),
 } as const;
 
 /** Error messages for MDX processing */

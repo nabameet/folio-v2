@@ -1,8 +1,8 @@
 import fs from "fs";
 import path from "path";
 import { MDXContent, MDXMetadata } from "../types";
-import { cmsConfig } from "../config/content";
 import { MDX_CONSTANTS, MDX_ERRORS } from "../constants";
+import { getCachedContent } from "./cache";
 
 /**
  * Parses MDX frontmatter from file content
@@ -24,6 +24,11 @@ export function parseFrontmatter(fileContent: string): {
   metadata: MDXMetadata;
   content: string;
 } {
+  const contentHash = fileContent.slice(0, 100); // Simple cache key
+
+  if (MDX_CONSTANTS.PARSE_CACHE.has(contentHash)) {
+    return MDX_CONSTANTS.PARSE_CACHE.get(contentHash)!;
+  }
   try {
     const match = MDX_CONSTANTS.FRONTMATTER_REGEX.exec(fileContent);
 
@@ -48,10 +53,9 @@ export function parseFrontmatter(fileContent: string): {
       metadata[key.trim() as keyof MDXMetadata] = value;
     });
 
-    return {
-      metadata: metadata as MDXMetadata,
-      content,
-    };
+    const result = { metadata: metadata as MDXMetadata, content };
+    MDX_CONSTANTS.PARSE_CACHE.set(contentHash, result);
+    return result;
   } catch (error) {
     throw new Error(
       `${MDX_ERRORS.FRONTMATTER_PARSE_ERROR}: ${error instanceof Error ? error.message : "Unknown error"}`,
@@ -174,7 +178,7 @@ export function getMDXData(dir: string): MDXContent[] {
  */
 export function getAllContent(): MDXContent[] {
   try {
-    return getMDXData(cmsConfig.contentDir);
+    return getCachedContent();
   } catch (error) {
     console.error("Failed to load content:", error);
     throw error;

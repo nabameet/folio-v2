@@ -1,3 +1,7 @@
+// Add to your [slug]/page.tsx
+export const dynamic = "force-static";
+export const revalidate = false; // Only regenerate on deployment
+
 import {
   ProjectDetail,
   getProjectStaticParams,
@@ -11,14 +15,24 @@ export async function generateStaticParams() {
   return getProjectStaticParams();
 }
 
-// Generates SEO metadata for the page
+// Create metadata cache
+const metadataCache = new Map<string, unknown>();
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return getProjectMetadata({ slug, author: "nabameet" });
+
+  if (metadataCache.has(slug)) {
+    return metadataCache.get(slug);
+  }
+
+  const metadata = getProjectMetadata({ slug, author: "nabameet" });
+  metadataCache.set(slug, metadata);
+
+  return metadata;
 }
 
 export default async function ProjectPage({

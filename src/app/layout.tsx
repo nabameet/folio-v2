@@ -19,7 +19,10 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: SITE_METADATA.TITLE,
+  title: {
+    template: SITE_METADATA.TITLE.TEMPLATE,
+    default: SITE_METADATA.TITLE.DEFAULT,
+  },
   description: SITE_METADATA.DESCRIPTION,
   keywords: SEO_KEYWORDS,
   authors: [{ name: SITE_METADATA.AUTHOR, url: SITE_METADATA.URL }],
@@ -30,13 +33,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_METADATA.URL,
-    title: SITE_METADATA.TITLE,
+    title: SITE_METADATA.TITLE.DEFAULT,
     description: SITE_METADATA.DESCRIPTION,
     images: [{ url: SITE_METADATA.OG_IMAGE }],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_METADATA.TITLE,
+    title: SITE_METADATA.TITLE.DEFAULT,
     description: SITE_METADATA.DESCRIPTION,
     site: "@" + SITE_METADATA.AUTHOR,
     creator: "@" + SITE_METADATA.AUTHOR,

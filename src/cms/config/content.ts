@@ -11,7 +11,7 @@ export const cmsConfig: CMSConfig = {
   contentDir: "src/projects",
 
   /** Full production site URL for absolute URL generation */
-  site_url: "https://your-domain.com",
+  site_url: "https://nabameet.com",
 
   /** Base path for content routes */
   base_path: "/work",
