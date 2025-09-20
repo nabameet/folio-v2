@@ -29,8 +29,8 @@ export default function ProjectSnapshot({
 
   return (
     <div
-      className={`absolute right-0 z-10 flex h-full flex-col items-end justify-end px-8 py-20 transition-opacity duration-500 ease-in-out md:max-w-1/2 md:justify-center md:px-12 md:py-40 xl:max-w-2/5 ${
-        showImage && imageSrc ? "opacity-100" : "pointer-events-none opacity-0"
+      className={`pointer-events-none absolute right-0 z-10 flex h-full w-full flex-col items-end justify-end px-8 py-20 transition-opacity duration-500 ease-in-out md:max-w-1/2 md:justify-center md:px-12 md:py-40 xl:max-w-2/5 ${
+        showImage && imageSrc ? "opacity-100" : "opacity-0"
       }`}
       style={{ viewTransitionName: transitionKey }}
     >

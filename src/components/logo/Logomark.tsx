@@ -43,7 +43,7 @@ export const Logomark = (props: SVGProps<SVGSVGElement>) => {
       {...props}
     >
       <g
-        className="origin-center scale-75"
+        className="origin-center"
         style={{ transform: `scale(${LOGOMARK_CONSTANTS.SCALE_FACTOR})` }}
       >
         {LOGOMARK_PATHS.map((pathData, index) => (

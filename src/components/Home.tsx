@@ -30,7 +30,7 @@ export default function Home({ projects }: HomeProps) {
   } = useProjectHover();
 
   return (
-    <main className="relative flex h-screen w-full items-center justify-center">
+    <main className="relative flex h-dvh w-full items-center justify-center">
       <Logomark className="h-full w-full max-w-screen-2xl" />
 
       <ProjectSnapshot
