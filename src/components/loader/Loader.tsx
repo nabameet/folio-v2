@@ -48,11 +48,18 @@ export const Loader = ({ children }: ImagePreloaderProps) => {
   }, [startPreloading]);
 
   return (
-    <>
+    <div className="relative">
+      <div
+        aria-hidden={isLoading}
+        className={`transition-opacity duration-500 ${
+          isLoading ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        {children}
+      </div>
       <AnimatePresence mode="wait">
         {isLoading && <LoadingScreen key="loading-screen" />}
       </AnimatePresence>
-      {!isLoading && children}
-    </>
+    </div>
   );
 };

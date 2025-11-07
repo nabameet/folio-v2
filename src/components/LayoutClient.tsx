@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 import { NavItem } from "@/types/nav";
 import { ANIMATION_CONSTANTS } from "@/constants/content";
@@ -60,22 +60,19 @@ export const LayoutClient = ({
         <InfoContact resumeUrl={resumeUrl} xUsername={xUsername} />
       </InfoDrawer>
 
-      <AnimatePresence mode="wait">
-        {!isLoading && (
-          <motion.div
-            className="min-h-dvh"
-            key="main-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: ANIMATION_CONSTANTS.CONTENT_FADE_DURATION,
-              delay: ANIMATION_CONSTANTS.CONTENT_FADE_DELAY,
-            }}
-          >
-            <div className="">{children}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        className="min-h-dvh"
+        key="main-content"
+        initial={false}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{
+          duration: ANIMATION_CONSTANTS.CONTENT_FADE_DURATION,
+          delay: isLoading ? 0 : ANIMATION_CONSTANTS.CONTENT_FADE_DELAY,
+        }}
+        aria-hidden={isLoading}
+      >
+        <div className="">{children}</div>
+      </motion.div>
     </>
   );
 };
