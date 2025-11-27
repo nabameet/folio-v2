@@ -14,29 +14,47 @@ const config: ImageManifestConfig = {
   imageExtensions: [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".avif"],
 };
 
-function getAllImages(dirPath: string, arrayOfFiles: string[] = []): string[] {
+/**
+ * Convert file system path to web path
+ * Normalizes Windows/Unix paths and ensures leading slash
+ */
+function toWebPath(fullPath: string, publicDir: string): string {
+  // Normalize path separators
+  const normalized = fullPath.replace(/\\/g, "/");
+  
+  // Get absolute path of public directory
+  const publicAbsPath = path.resolve(publicDir).replace(/\\/g, "/");
+  const fileAbsPath = path.resolve(fullPath).replace(/\\/g, "/");
+  
+  // Extract relative path from public directory
+  const relativePath = fileAbsPath.replace(publicAbsPath, "");
+  
+  // Ensure leading slash
+  return relativePath.startsWith("/") ? relativePath : `/${relativePath}`;
+}
+
+/**
+ * Recursively scan directory for image files
+ * Returns sorted array of web paths
+ */
+function getAllImages(dirPath: string, publicDir: string, arrayOfFiles: string[] = []): string[] {
   try {
-    const files = fs.readdirSync(dirPath);
+    const files = fs.readdirSync(dirPath, { withFileTypes: true });
 
-    files.forEach((file) => {
-      const fullPath = path.join(dirPath, file);
+    for (const file of files) {
+      const fullPath = path.join(dirPath, file.name);
 
-      if (fs.statSync(fullPath).isDirectory()) {
+      if (file.isDirectory()) {
         // Recursively scan subdirectories
-        arrayOfFiles = getAllImages(fullPath, arrayOfFiles);
-      } else {
-        const ext = path.extname(file).toLowerCase();
+        getAllImages(fullPath, publicDir, arrayOfFiles);
+      } else if (file.isFile()) {
+        const ext = path.extname(file.name).toLowerCase();
         if (config.imageExtensions.includes(ext)) {
-          // Convert to web path (remove 'public' prefix and normalize slashes)
-          const webPath = fullPath
-            .replace(/\\/g, "/") // Convert Windows backslashes
-            .replace(/^\.\/public\/?/, "/") // Remove ./public/ and ensure leading slash
-            .replace(/^public\/?/, "/"); // Also handle public/ without leading dot
-
-          arrayOfFiles.push(webPath.startsWith("/") ? webPath : "/" + webPath);
+          const webPath = toWebPath(fullPath, publicDir);
+          arrayOfFiles.push(webPath);
         }
       }
-    });
+    }
 
     return arrayOfFiles;
   } catch (error) {
@@ -45,15 +63,100 @@ function getAllImages(dirPath: string, arrayOfFiles: string[] = []): string[] {
   }
 }
 
+/**
+ * Categorize images in a single pass for efficiency
+ */
+function categorizeImages(images: string[]) {
+  const categories = {
+    hero: [] as string[],
+    projects: [] as string[],
+    gallery: [] as string[],
+    icons: [] as string[],
+    backgrounds: [] as string[],
+    other: [] as string[],
+  };
+
+  for (const img of images) {
+    if (img.includes("/hero/")) {
+      categories.hero.push(img);
+    } else if (img.includes("/projects/")) {
+      categories.projects.push(img);
+    } else if (img.includes("/gallery/")) {
+      categories.gallery.push(img);
+    } else if (img.includes("/icons/")) {
+      categories.icons.push(img);
+    } else if (img.includes("/bg/") || img.includes("/backgrounds/")) {
+      categories.backgrounds.push(img);
+    } else {
+      categories.other.push(img);
+    }
+  }
+
+  return categories;
+}
+
+/**
+ * Validate that critical images exist in the image list
+ */
+function validateCriticalImages(
+  criticalPaths: string[],
+  allImages: string[],
+): { valid: string[]; invalid: string[] } {
+  const imageSet = new Set(allImages);
+  const valid: string[] = [];
+  const invalid: string[] = [];
+
+  for (const path of criticalPaths) {
+    if (imageSet.has(path)) {
+      valid.push(path);
+    } else {
+      invalid.push(path);
+    }
+  }
+
+  return { valid, invalid };
+}
+
 function generateImageManifest(): void {
   console.log("🔍 Scanning public directory for images...");
 
-  if (!fs.existsSync(config.publicDir)) {
-    console.error(`❌ Public directory not found: ${config.publicDir}`);
+  const publicDir = path.resolve(config.publicDir);
+  
+  if (!fs.existsSync(publicDir)) {
+    console.error(`❌ Public directory not found: ${publicDir}`);
     process.exit(1);
   }
 
-  const imageList = getAllImages(config.publicDir);
+  // Get all images and sort for consistency
+  const imageList = getAllImages(publicDir, publicDir);
+  imageList.sort(); // Sort for consistent output
+
+  if (imageList.length === 0) {
+    console.warn("⚠️  No images found in public directory");
+  }
+
+  // Categorize images efficiently
+  const categories = categorizeImages(imageList);
+
+  // Define critical images (with correct file extensions)
+  const criticalImagePaths = [
+    ...categories.hero,
+    "/project-images/cynics-calcutta/title.webp",
+    "/project-images/faekbank/6.webp", // Fixed: was .png
+    "/project-images/fears-to-fathom/title.webp", // Fixed: was .png
+    "/project-images/young-founder-summit/hero.webp", // Fixed: was .png
+  ];
+
+  // Validate critical images exist
+  const { valid: validCritical, invalid: invalidCritical } = validateCriticalImages(
+    criticalImagePaths,
+    imageList,
+  );
+
+  if (invalidCritical.length > 0) {
+    console.warn("⚠️  Critical images not found:");
+    invalidCritical.forEach((img) => console.warn(`   - ${img}`));
+  }
 
   // Ensure lib directory exists
   const libDir = path.dirname(config.outputPath);
@@ -65,6 +168,7 @@ function generateImageManifest(): void {
   const manifestContent = `// Auto-generated image manifest
 // Generated on: ${new Date().toISOString()}
 // Total images: ${imageList.length}
+// DO NOT EDIT THIS FILE MANUALLY - Run 'npm run generate:images' to regenerate
 
 export const ALL_IMAGES: readonly string[] = ${JSON.stringify(imageList, null, 2)} as const;
 
@@ -79,46 +183,32 @@ export const IMAGE_CATEGORIES = {
 export const CRITICAL_IMAGES = [
   ...IMAGE_CATEGORIES.hero,
   "/project-images/cynics-calcutta/title.webp",
-  "/project-images/faekbank/6.png",
-  "/project-images/fears-to-fathom/title.png",
-  "/project-images/young-founder-summit/hero.png",
-  // Add other critical images here
-].filter(Boolean) as string[];
+  "/project-images/faekbank/6.webp",
+  "/project-images/fears-to-fathom/title.webp",
+  "/project-images/young-founder-summit/hero.webp",
+].filter((img): img is string => ALL_IMAGES.includes(img as typeof ALL_IMAGES[number])) as readonly string[];
 
 export const NON_CRITICAL_IMAGES = ALL_IMAGES.filter(
   img => !CRITICAL_IMAGES.includes(img)
-) as string[];
+) as readonly string[];
 
 export type ImagePath = typeof ALL_IMAGES[number];
 `;
 
   try {
-    fs.writeFileSync(config.outputPath, manifestContent);
+    fs.writeFileSync(config.outputPath, manifestContent, "utf-8");
     console.log(`✅ Generated image manifest with ${imageList.length} images`);
     console.log(`📁 Categories found:`);
 
-    const categories = {
-      hero: imageList.filter((img) => img.includes("/hero/")).length,
-      projects: imageList.filter((img) => img.includes("/projects/")).length,
-      gallery: imageList.filter((img) => img.includes("/gallery/")).length,
-      icons: imageList.filter((img) => img.includes("/icons/")).length,
-      backgrounds: imageList.filter(
-        (img) => img.includes("/bg/") || img.includes("/backgrounds/"),
-      ).length,
-      other: imageList.filter(
-        (img) =>
-          !img.includes("/hero/") &&
-          !img.includes("/projects/") &&
-          !img.includes("/gallery/") &&
-          !img.includes("/icons/") &&
-          !img.includes("/bg/") &&
-          !img.includes("/backgrounds/"),
-      ).length,
-    };
-
-    Object.entries(categories).forEach(([category, count]) => {
-      if (count > 0) console.log(`  - ${category}: ${count} images`);
+    Object.entries(categories).forEach(([category, images]) => {
+      if (images.length > 0) {
+        console.log(`  - ${category}: ${images.length} images`);
+      }
     });
+
+    if (validCritical.length > 0) {
+      console.log(`\n🎯 Critical images: ${validCritical.length} validated`);
+    }
   } catch (error) {
     console.error("❌ Error writing manifest file:", error);
     process.exit(1);
