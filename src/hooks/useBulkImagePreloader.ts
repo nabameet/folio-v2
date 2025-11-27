@@ -137,15 +137,15 @@ export function useBulkImagePreloader({
     hasStartedRef.current = true;
     isPreloadingRef.current = true;
 
-    console.log(`🖼️ Starting to preload ${images.length} images...`);
+    // Create unique image list to prevent duplicates
+    const uniqueImages = [...new Set(images)];
+    const totalImages = uniqueImages.length;
+
+    console.log(`🖼️ Starting to preload ${totalImages} unique images (${images.length} total)...`);
 
     try {
       let completedCount = 0;
-      const totalImages = images.length;
       const results: PreloadedImage[] = [];
-
-      // Create unique image list to prevent duplicates
-      const uniqueImages = [...new Set(images)];
 
       const updateProgress = (result: PreloadedImage) => {
         completedCount++;
@@ -199,6 +199,32 @@ export function useBulkImagePreloader({
       });
 
       await Promise.all(preloadPromises);
+      
+      // Safety check: ensure completion is called even if updateProgress didn't trigger it
+      // This handles edge cases where progress might not have reached 100%
+      if (completedCount < totalImages) {
+        console.warn(
+          `⚠️ Preloading finished but completedCount (${completedCount}) < totalImages (${totalImages}). Forcing completion.`
+        );
+        const successCount = results.filter((r) => r.success).length;
+        const failedCount = results.filter((r) => !r.success).length;
+        
+        // Set progress to 100% to unblock the UI
+        setLoadingProgress(100);
+        onProgress?.(100);
+        
+        console.log(
+          `🎉 Preloading complete (forced)! ✅ ${successCount} loaded, ❌ ${failedCount} failed`,
+        );
+        
+        setPreloadResults(results);
+        onComplete?.(results);
+        
+        setTimeout(() => {
+          setIsLoading(false);
+          isPreloadingRef.current = false;
+        }, 300);
+      }
     } catch (error) {
       console.error("Error in preloading process:", error);
       setIsLoading(false);
