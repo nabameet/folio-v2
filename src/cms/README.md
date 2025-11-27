@@ -47,7 +47,7 @@ title: My Awesome Project
 publishedAt: 2024-01-01
 summary: A short, compelling summary of this project.
 tags: react,nextjs,design
-image: /images/projects/awesome-project.png
+image: /images/projects/awesome-project.webp
 ---
 
 # This is the rest of your content.
