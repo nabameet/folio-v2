@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { LOADING_CONSTANTS } from "@/constants/loading";
 
 interface ProgressDisplayProps {
   /** Current loading progress percentage */
@@ -25,7 +26,10 @@ export const ProgressDisplay = ({
     <motion.div
       initial={{ opacity: 1 }}
       animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{
+        duration: LOADING_CONSTANTS.LOGOTYPE_FADE_DURATION,
+        ease: "easeInOut",
+      }}
     >
       <div>
         <p>{roundedProgress}%</p>

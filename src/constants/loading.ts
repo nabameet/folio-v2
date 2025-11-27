@@ -3,10 +3,7 @@ export const LOADING_CONSTANTS = {
   /** Image preloading start delay in milliseconds */
   PRELOAD_START_DELAY: 0,
 
-  /** Loading screen completion delay in milliseconds */
-  COMPLETION_DELAY: 1000,
-
-  /** Logotype animation duration in milliseconds */
+  /** Logotype animation minimum visible duration in milliseconds */
   LOGOTYPE_ANIMATION_DURATION: 3000,
 
   /** Progress animation smoothness factor */

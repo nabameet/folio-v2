@@ -28,10 +28,7 @@ export const Loader = ({ children }: ImagePreloaderProps) => {
     images: ALL_IMAGES,
     onProgress: setProgress,
     onComplete: () => {
-      // Delay setting isLoading to false to allow the logotype animation to complete
-      setTimeout(() => {
         setIsLoading(false);
-      }, LOADING_CONSTANTS.COMPLETION_DELAY);
     },
   });
 

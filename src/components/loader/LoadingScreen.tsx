@@ -18,6 +18,7 @@ export const LoadingScreen = () => {
   const [displayProgress, setDisplayProgress] = useState(0);
   const { loadingProgress: progress } = useLoadingStore();
   const [isLogotypeAnimationDone, setIsLogotypeAnimationDone] = useState(false);
+  const shouldShowProgress = progress < 100 || !isLogotypeAnimationDone;
 
   // Smooth progress animation
   useEffect(() => {
@@ -57,7 +58,7 @@ export const LoadingScreen = () => {
             <ProgressDisplay
               progress={displayProgress}
               loadingMessage={LOADING_TEXT.LOADING_MESSAGE}
-              isVisible={!isLogotypeAnimationDone}
+              isVisible={shouldShowProgress}
             />
           </div>
         </div>
