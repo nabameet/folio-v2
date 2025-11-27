@@ -4,7 +4,7 @@ export const LOADING_CONSTANTS = {
   PRELOAD_START_DELAY: 100,
 
   /** Loading screen completion delay in milliseconds */
-  COMPLETION_DELAY: 1200,
+  COMPLETION_DELAY: 1500,
 
   /** Logotype animation duration in milliseconds */
   LOGOTYPE_ANIMATION_DURATION: 3200,
