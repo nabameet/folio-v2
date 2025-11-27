@@ -1,28 +1,28 @@
 /** Loading component constants */
 export const LOADING_CONSTANTS = {
   /** Image preloading start delay in milliseconds */
-  PRELOAD_START_DELAY: 100,
+  PRELOAD_START_DELAY: 0,
 
   /** Loading screen completion delay in milliseconds */
-  COMPLETION_DELAY: 1500,
+  COMPLETION_DELAY: 1000,
 
   /** Logotype animation duration in milliseconds */
-  LOGOTYPE_ANIMATION_DURATION: 3200,
+  LOGOTYPE_ANIMATION_DURATION: 3000,
 
   /** Progress animation smoothness factor */
-  PROGRESS_SMOOTH_FACTOR: 0.15,
+  PROGRESS_SMOOTH_FACTOR: 0.25,
 
   /** Progress animation interval in milliseconds */
   PROGRESS_INTERVAL: 16,
 
   /** Loading screen exit duration in seconds */
-  EXIT_DURATION: 0.4,
+  EXIT_DURATION: 0.35,
 
   /** Loading screen exit delay in seconds */
-  EXIT_DELAY: 0.5,
+  EXIT_DELAY: 0.05,
 
   /** Logotype fade out duration in seconds */
-  LOGOTYPE_FADE_DURATION: 0.5,
+  LOGOTYPE_FADE_DURATION: 0.4,
 } as const;
 
 /** Loading screen text content */
