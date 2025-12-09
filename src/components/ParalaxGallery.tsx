@@ -73,6 +73,10 @@ export default function ParallaxGallery() {
       metadataRef.current[i] = { cx, cy, tween };
     });
 
+    // Capture the current metadata to a local variable for cleanup
+    // This satisfies the linter because 'currentMetadata' will not change
+    const currentMetadata = metadataRef.current;
+
     // --- Logic 2: Mouse Movement Handler ---
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY, pageX, pageY } = e;
@@ -97,7 +101,7 @@ export default function ParallaxGallery() {
       });
 
       // B. Proximity Scale Logic
-      metadataRef.current.forEach((meta) => {
+      currentMetadata.forEach((meta) => {
         const dx = (meta.cx - pageX) ** 2;
         const dy = (meta.cy - pageY) ** 2;
         const distSq = dx + dy;
@@ -117,10 +121,10 @@ export default function ParallaxGallery() {
     // Recalculate center points if window resizes
     const handleResize = () => {
       blocksRef.current.forEach((block, i) => {
-        if (!block || !metadataRef.current[i]) return;
+        if (!block || !currentMetadata[i]) return;
         const b = block.getBoundingClientRect();
-        metadataRef.current[i].cx = b.left + b.width / 2 + window.scrollX;
-        metadataRef.current[i].cy = b.top + b.height / 2 + window.scrollY;
+        currentMetadata[i].cx = b.left + b.width / 2 + window.scrollX;
+        currentMetadata[i].cy = b.top + b.height / 2 + window.scrollY;
       });
     };
 
@@ -131,7 +135,7 @@ export default function ParallaxGallery() {
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("resize", handleResize);
       // Clean up GSAP tweens
-      metadataRef.current.forEach((meta) => meta.tween.kill());
+      currentMetadata.forEach((meta) => meta.tween.kill());
     };
   }, []);
 
