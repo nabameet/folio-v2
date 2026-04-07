@@ -48,7 +48,7 @@ export const Nav = ({ items = [], isInfoOpen }: NavProps) => {
             aria-label="Toggle dark/light mode"
             onClick={toggle}
             className={clsx(
-              "size-1.5 bg-foreground mb-1",
+              "invisible size-1.5 md:visible bg-foreground mb-1",
             )}
           />
           {items.map((item, idx) =>
