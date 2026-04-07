@@ -36,7 +36,7 @@ export const Nav = ({ items = [], isInfoOpen }: NavProps) => {
         aria-label="Home"
         className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
       >
-        <Logomark className="size-20" />
+        <Logomark className="invisible md:size-20 md:visible size-10" />
       </Link>
 
       <div className="flex w-full items-center justify-between">
