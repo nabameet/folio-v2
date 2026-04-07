@@ -21,16 +21,27 @@ interface ImagePreloaderProps {
  * Shows loading screen during preload process
  */
 export const Loader = ({ children }: ImagePreloaderProps) => {
-  const { isLoading, setIsLoading, setProgress } = useLoadingStore();
+  const { isLoading, setIsLoading, setProgress, disableLogoHandoff } =
+    useLoadingStore();
   const initializationRef = useRef(false);
 
   const { startPreloading } = useBulkImagePreloader({
     images: ALL_IMAGES,
     onProgress: setProgress,
     onComplete: () => {
-        setIsLoading(false);
+      setIsLoading(false);
     },
   });
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    const timer = setTimeout(() => {
+      disableLogoHandoff();
+    }, (LOADING_CONSTANTS.EXIT_DELAY + LOADING_CONSTANTS.EXIT_DURATION) * 1000);
+
+    return () => clearTimeout(timer);
+  }, [disableLogoHandoff, isLoading]);
 
   useEffect(() => {
     if (initializationRef.current) return;

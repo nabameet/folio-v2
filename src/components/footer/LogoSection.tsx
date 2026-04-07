@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { FOOTER_CONSTANTS, FOOTER_SVG } from "@/constants/footer";
+import { useLoadingStore } from "@/store/loadingStore";
 
 /**
  * Footer logo section with handwritten signature and copyright
@@ -7,9 +8,17 @@ import { FOOTER_CONSTANTS, FOOTER_SVG } from "@/constants/footer";
  * Displays animated handwritten logo and copyright symbol with year
  * Uses Framer Motion for layout animations between page transitions
  */
-export const LogoSection: React.FC = () => (
-  <span className="flex items-center gap-2">
-    <motion.div layoutId={FOOTER_CONSTANTS.LOGO_LAYOUT_ID}>
+export const LogoSection: React.FC = () => {
+  const { enableLogoHandoff } = useLoadingStore();
+
+  return (
+    <span className="flex items-center gap-2">
+      <motion.div
+        layout={enableLogoHandoff}
+        layoutId={
+          enableLogoHandoff ? FOOTER_CONSTANTS.LOGO_LAYOUT_ID : undefined
+        }
+      >
       <svg
         className="h-3 sm:h-4"
         xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +30,7 @@ export const LogoSection: React.FC = () => (
           d={FOOTER_SVG.LOGO.path}
         />
       </svg>
-    </motion.div>
+      </motion.div>
 
     <span className="flex items-center gap-1">
       <svg
@@ -37,5 +46,6 @@ export const LogoSection: React.FC = () => (
       </svg>
       {FOOTER_CONSTANTS.CURRENT_YEAR}
     </span>
-  </span>
-);
+    </span>
+  );
+};

@@ -7,10 +7,10 @@ export const LOGOMARK_CONSTANTS = {
   VIEWBOX: "0 0 1440 1080" as const,
 
   /** Default stroke width for logomark paths */
-  STROKE_WIDTH: 2.5,
+  STROKE_WIDTH: 10,
 
   /** Scale factor for responsive sizing */
-  SCALE_FACTOR: 0.75,
+  SCALE_FACTOR: .9,
 
   /** Data attribute for identifying logomark */
   DATA_NAME: "logomarkmark" as const,

@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 import { LOGOTYPE_SVG } from "@/constants/loading";
+import { FOOTER_CONSTANTS } from "@/constants/footer";
+import { useLoadingStore } from "@/store/loadingStore";
 
 /**
  * Animated handwritten logotype with fill animation
@@ -8,8 +10,13 @@ import { LOGOTYPE_SVG } from "@/constants/loading";
  * that transitions from stroke-only to filled state
  */
 export const AnimatedLogotype = () => {
+  const { enableLogoHandoff } = useLoadingStore();
+
   return (
-    <motion.div key="logotype-loader" layoutId="logotype-handwritten">
+    <motion.div
+      key="logotype-loader"
+      layoutId={enableLogoHandoff ? FOOTER_CONSTANTS.LOGO_LAYOUT_ID : undefined}
+    >
       <svg
         className="w-full"
         xmlns="http://www.w3.org/2000/svg"

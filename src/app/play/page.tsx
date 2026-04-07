@@ -1,13 +1,15 @@
-import { Logomark } from "@/components/logo";
 import { Footer } from "@/components/footer";
 import ParallaxGallery from "@/components/ParalaxGallery";
 import Link from "next/link";
 
 export default function Play() {
   return (
-    <main className="relative flex h-screen w-full items-center justify-center">
-      <Logomark className="h-full w-full" />
-      <div className="absolute top-0 left-0 z-50 flex flex-col gap-4 px-8 pt-40 md:px-12">
+    <main className="relative flex min-h-dvh w-full flex-col">
+      <p className="absolute top-0 left-0 flex flex-col gap-4 px-8 pt-40 md:px-12">
+        coming soon:
+        <span className="italic">under construction</span>
+      </p>
+      {/* <div className="absolute top-0 left-0 z-50 flex flex-col gap-4 px-8 pt-40 md:px-12">
         <div className="z-40 flex flex-col gap-4 lowercase">
           <h1 className="">fun stuff:</h1>
           <ul className="">
@@ -35,7 +37,8 @@ export default function Play() {
           </ul>
         </div>
       </div>
-      <ParallaxGallery />
+      <ParallaxGallery /> */}
+      <div className="flex-1" />
       <Footer />
     </main>
   );

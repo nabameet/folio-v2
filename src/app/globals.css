@@ -18,6 +18,17 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+/* Manual theme override (takes precedence over system) */
+:root[data-theme="light"] {
+  --background: #f4f1ec;
+  --foreground: #0b0e13;
+}
+
+:root[data-theme="dark"] {
+  --background: #0b0e13;
+  --foreground: #f4f1ec;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0b0e13;

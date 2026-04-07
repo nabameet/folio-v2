@@ -186,6 +186,7 @@ export const CRITICAL_IMAGES = [
   "/project-images/faekbank/6.webp",
   "/project-images/fears-to-fathom/title.webp",
   "/project-images/young-founder-summit/hero.webp",
+  "/project-images/vaari/1-cover.webp",
 ].filter((img): img is string => ALL_IMAGES.includes(img as typeof ALL_IMAGES[number])) as readonly string[];
 
 export const NON_CRITICAL_IMAGES = ALL_IMAGES.filter(

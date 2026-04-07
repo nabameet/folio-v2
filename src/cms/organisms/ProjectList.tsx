@@ -7,6 +7,8 @@ import { Project, ProjectHoverHandlers } from "@/types/project";
 export interface ProjectListProps extends ProjectHoverHandlers {
   /** Array of projects to display */
   projects: Project[];
+  /** Optional heading text (set to null to hide) */
+  heading?: string | null;
   /** Optional custom render function for project items */
   renderItem?: (project: Project) => React.ReactNode;
   /** Additional CSS classes */
@@ -21,6 +23,7 @@ export interface ProjectListProps extends ProjectHoverHandlers {
  */
 export const ProjectList: React.FC<ProjectListProps> = ({
   projects,
+  heading = "selected works:",
   renderItem,
   className,
   onProjectHover,
@@ -39,7 +42,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({
 
   return (
     <div className={clsx("z-40 flex flex-col gap-4 lowercase", className)}>
-      <h1 className="">selected works:</h1>
+      {heading ? <h1 className="">{heading}</h1> : null}
       <ul className="">
         {sortedProjects.map((project, index) =>
           renderItem ? (

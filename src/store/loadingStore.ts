@@ -11,6 +11,13 @@ interface LoadingState {
   loadingProgress: number;
   /** Set loading progress */
   setProgress: (progress: number) => void;
+  /**
+   * Enables the shared-element logo handoff from loader -> footer.
+   * This should only be true for the initial load.
+   */
+  enableLogoHandoff: boolean;
+  /** Disable the shared-element logo handoff after initial load */
+  disableLogoHandoff: () => void;
 }
 
 /**
@@ -25,4 +32,6 @@ export const useLoadingStore = create<LoadingState>((set) => ({
   toggleLoading: () => set((state) => ({ isLoading: !state.isLoading })),
   loadingProgress: 0,
   setProgress: (progress) => set({ loadingProgress: progress }),
+  enableLogoHandoff: true,
+  disableLogoHandoff: () => set({ enableLogoHandoff: false }),
 }));

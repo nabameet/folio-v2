@@ -35,11 +35,11 @@ export const Logomark = (props: SVGProps<SVGSVGElement>) => {
       xmlns={LOGOMARK_CONSTANTS.XMLNS}
       data-name={LOGOMARK_CONSTANTS.DATA_NAME}
       viewBox={LOGOMARK_CONSTANTS.VIEWBOX}
-      fill="none"
-      stroke="currentColor"
+      fill="currentColor"
+      stroke="none"
       strokeWidth={LOGOMARK_CONSTANTS.STROKE_WIDTH}
       role="img"
-      aria-label="Portfolio logomarkmark with abstract geometric design"
+      aria-label="Portfolio"
       {...props}
     >
       <g

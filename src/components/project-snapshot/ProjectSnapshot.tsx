@@ -36,7 +36,7 @@ export default function ProjectSnapshot({
     >
       <ProjectSnapshotImage src={imageSrc} alt={imageAlt} />
 
-      <ProjectSnapshotTags tags={imageTags} />
+      <ProjectSnapshotTags className="mt-6" tags={imageTags} />
     </div>
   );
 }
