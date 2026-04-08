@@ -30,7 +30,7 @@ export const Nav = ({ items = [], isInfoOpen }: NavProps) => {
   const { effectiveTheme, toggle } = useThemeToggle();
 
   return (
-    <nav className="fixed z-50 w-full p-8 md:p-12">
+    <nav className="fixed z-50 w-full p-8 md:p-12 mix-blend-difference text-white">
       <Link
         href="/"
         aria-label="Home"
@@ -48,7 +48,7 @@ export const Nav = ({ items = [], isInfoOpen }: NavProps) => {
             aria-label="Toggle dark/light mode"
             onClick={toggle}
             className={clsx(
-              "invisible size-1.5 md:visible bg-foreground mb-1.5",
+              "invisible size-1.5 md:visible bg-white mb-1.5",
             )}
           />
           {items.map((item, idx) =>
