@@ -30,7 +30,7 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
   return (
     <div
       className={clsx(
-        "grid w-full grid-cols-1 gap-6 lowercase sm:grid-cols-2 lg:grid-cols-3",
+        "grid w-full grid-cols-1 gap-12  lowercase sm:grid-cols-2 lg:grid-cols-3",
         className,
       )}
     >
@@ -66,13 +66,13 @@ export const ProjectGrid: React.FC<ProjectGridProps> = ({
               />
             </div>
 
-            <div className="flex items-start justify-between gap-4">
-              <span className="min-w-0 italic underline underline-offset-2">
+            <div className="flex justify-between gap-4">
+              <span className="min-w-0 flex-1 italic underline underline-offset-2">
                 {project.metadata.title}
               </span>
 (
               {tagText ? (
-                <span className="max-w-[60%] text-right text-sm leading-snug text-black/70 text-foreground">
+                <span className="text-right leading-snug text-black/70 text-foreground">
                   {tagText}
                 </span>
               ) : null})

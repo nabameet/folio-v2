@@ -87,11 +87,11 @@ export default function Home({ projects }: HomeProps) {
         <ProjectSnapshot showImage={showImage} currentImage={currentImage} />
       ) : null}
 
-      <div className="relative z-40 w-full flex-1 px-8 pt-52 md:px-12">
+      <div className="relative z-40 w-full flex-1 px-8 pt-40 md:px-12">
         <div className="flex items-center justify-between gap-6 lowercase">
           <h1 className="">selected works:</h1>
 
-          <div className="flex items-center gap-1">
+          {/* <div className="flex items-center gap-1">
             <button
               type="button"
               aria-label="Grid view"
@@ -114,7 +114,7 @@ export default function Home({ projects }: HomeProps) {
             >
               <ViewListIcon className="size-4" />
             </button>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-4">

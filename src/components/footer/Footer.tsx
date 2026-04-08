@@ -18,7 +18,7 @@ import { ContactLink } from "./ContactLink";
 export function Footer() {
   return (
     <motion.div
-      className="z-50 flex w-full items-center justify-between gap-12 p-8 mt-16 [&_svg]:fill-foreground md:p-12"
+      className="z-50 flex w-full items-center justify-between gap-12 p-8 mt-8 [&_svg]:fill-foreground md:p-12"
     >
       <LogoSection />
       <ContactLink />

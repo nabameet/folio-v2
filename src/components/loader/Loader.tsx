@@ -21,7 +21,13 @@ interface ImagePreloaderProps {
  * Shows loading screen during preload process
  */
 export const Loader = ({ children }: ImagePreloaderProps) => {
-  const { isLoading, setIsLoading, setProgress, disableLogoHandoff } =
+  const {
+    isLoading,
+    setIsLoading,
+    setProgress,
+    setLogoHandoffEnabled,
+    disableLogoHandoff,
+  } =
     useLoadingStore();
   const initializationRef = useRef(false);
 
@@ -29,6 +35,8 @@ export const Loader = ({ children }: ImagePreloaderProps) => {
     images: ALL_IMAGES,
     onProgress: setProgress,
     onComplete: () => {
+      // Enable shared-layout handoff only for the loader exit animation.
+      setLogoHandoffEnabled(true);
       setIsLoading(false);
     },
   });

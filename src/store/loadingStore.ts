@@ -16,6 +16,8 @@ interface LoadingState {
    * This should only be true for the initial load.
    */
   enableLogoHandoff: boolean;
+  /** Explicitly set whether the handoff is enabled */
+  setLogoHandoffEnabled: (enabled: boolean) => void;
   /** Disable the shared-element logo handoff after initial load */
   disableLogoHandoff: () => void;
 }
@@ -32,6 +34,7 @@ export const useLoadingStore = create<LoadingState>((set) => ({
   toggleLoading: () => set((state) => ({ isLoading: !state.isLoading })),
   loadingProgress: 0,
   setProgress: (progress) => set({ loadingProgress: progress }),
-  enableLogoHandoff: true,
+  enableLogoHandoff: false,
+  setLogoHandoffEnabled: (enabled: boolean) => set({ enableLogoHandoff: enabled }),
   disableLogoHandoff: () => set({ enableLogoHandoff: false }),
 }));

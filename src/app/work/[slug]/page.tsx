@@ -8,6 +8,7 @@ import {
   getProjectMetadata,
 } from "@/cms";
 import { getAllContent } from "@/cms/utils/mdx";
+import { Footer } from "@/components/footer";
 import { notFound } from "next/navigation";
 
 // Generates all project pages at build time
@@ -45,5 +46,10 @@ export default async function ProjectPage({
   if (!project) {
     return notFound();
   }
-  return <ProjectDetail project={project} />;
+  return (<>
+  
+  <ProjectDetail project={project} />
+  <Footer />
+    </>
+  );
 }

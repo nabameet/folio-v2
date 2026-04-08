@@ -22,9 +22,9 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
       <motion.section
         className=""
         id="info"
-        initial={{ height: 0, opacity: 0 }}
+        initial={{ height: 0, opacity: 1 }}
         animate={{ height: "auto", opacity: 1 }}
-        exit={{ height: 0, opacity: 0 }}
+        exit={{ height: 0, opacity: 1 }}
         transition={{
           duration: ANIMATION_CONSTANTS.DRAWER_DURATION,
           ease: ANIMATION_CONSTANTS.DRAWER_EASING,
@@ -35,10 +35,10 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
         }}
       >
         <motion.div
-          className="flex flex-col items-end gap-8 px-8 pt-32 text-justify md:flex-row md:justify-end md:gap-20 md:px-12 md:pt-40 md:pb-20"
-          initial={{ opacity: 0, y: 10 }}
+          className="flex flex-col items-end gap-8 px-8 pt-32 text-justify md:flex-row md:justify-end md:gap-20 md:px-12 md:pt-40"
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
+          exit={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATION_CONSTANTS.DRAWER_CONTENT_DURATION }}
         >
           {children}
