@@ -20,7 +20,7 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
   <AnimatePresence initial={false}>
     {isOpen && (
       <motion.section
-        className=""
+        className="relative"
         id="info"
         initial={{ height: 0, opacity: 1 }}
         animate={{ height: "auto", opacity: 1 }}
@@ -41,6 +41,27 @@ export const InfoDrawer = ({ isOpen, children }: InfoDrawerProps) => (
           exit={{ opacity: 1, y: 0 }}
           transition={{ duration: ANIMATION_CONSTANTS.DRAWER_CONTENT_DURATION }}
         >
+          {/* <div
+            aria-hidden="true"
+            className="pointer-events-none relative w-full md:absolute md:bottom-10 md:left-12 md:top-40 md:w-[22rem]"
+          >
+            <div className="relative h-52 w-full overflow-hidden">
+              <motion.img
+                src="/gallery/10.webp"
+                alt=""
+                className="absolute left-0 top-0 h-44 w-44 rounded-sm object-cover shadow-[0_10px_30px_rgba(0,0,0,0.18)] md:h-52 md:w-52"
+                animate={{ rotate: [-5, 5, -5] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.img
+                src="/gallery/9.webp"
+                alt=""
+                className="absolute left-16 top-10 h-44 w-44 rounded-sm object-cover shadow-[0_10px_30px_rgba(0,0,0,0.18)] md:left-20 md:top-12 md:h-52 md:w-52"
+                animate={{ rotate: [5, -5, 5] }}
+                transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+              />
+            </div>
+          </div> */}
           {children}
         </motion.div>
       </motion.section>
